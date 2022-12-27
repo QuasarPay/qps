@@ -43,25 +43,20 @@ const Signin = () => {
   
     return (
       <Layout>
-        <LoginBar />
-        <div className={styles.wavy}>
-          
-          <Flex direction="row" w="full" align="center" px={40} zIndex={2}>
+        <LoginBar />          
+          <Flex direction="row" h="full" justify="right" pos="fixed" zIndex={2} right={0} top={16}>
             <Flex
               direction="column"
-              justify="center"
+              justify="right"
               bg="white"
-              w='600px'
+              w={{ lg: '600px'}}
               py={5}
-              px={10}
-              borderRadius="md"
-              mt={10}
+              px="126px"
             >
-              <Image src="/grayfull.png" alt="grayfull" w={40} />
-              <Text mt={2} fontSize={20} fontWeight={500}>
-                Login to GrayBook
+              <Text mt={10} fontSize={28} fontWeight={500}>
+                Sign In to Quasar Pay 
               </Text>
-                <Button
+                {/* <Button
                 mt={10}
                   leftIcon={<FcGoogle size={20} />}
                   alignItems="center"
@@ -71,7 +66,7 @@ const Signin = () => {
                   Login with Google
                 </Button>
   
-              
+               */}
               <Flex direction="column" mt={10}>
   
                 <Formik
@@ -91,10 +86,10 @@ const Signin = () => {
                           <FormControl
                             isInvalid={form.errors.name && form.touched.name}
                           >
-                            <FormLabel>Email</FormLabel>
+                            <FormLabel>Email Address</FormLabel>
                             <Input
                               {...field}
-                              placeholder="Email"
+                              placeholder="example@gmail.com"
                               type="email"
                               variant="outline"
                               mb={2}
@@ -116,7 +111,7 @@ const Signin = () => {
                             <FormLabel>Password</FormLabel>
                             <Input
                               {...field}
-                              placeholder="Password"
+                              placeholder="********"
                               type="password"
                               variant="outline"
                             />
@@ -128,26 +123,18 @@ const Signin = () => {
                       </Field>
                       <Flex align='center'>
                         <Text
-                          color="#F4B95F"
-                          fontSize={12}
-                          fontWeight={500}
-                          mt={2}
-                          mb={14}
-                        >
-                          Forgot Password?
-                        </Text>
-                        <Text
                           color="gray.500"
                           fontSize={12}
                           fontWeight={500}
                           mt={2}
                           mb={14}
-                          ml={6}
                         >
-                          Don&apos;t have an account? {" "} 
+                         Forgot password?{" "} 
                            <NextLink href='/register' passHref>
-                            <Link color="#F4B95F">
-                             Register Here 
+                            <Link color="#400050">
+                                <strong>
+                             Reset it 
+                             </strong>
                              </Link>
                            </NextLink>
                            </Text>
@@ -158,25 +145,20 @@ const Signin = () => {
                       <Button
                         mt={4}
                         w="full"
-                        bg="#F4B95F"
+                        bg="#400050"
                         color="white"
-                        _hover={{ bg: "#DAA65D" }}
+                        _hover={{ bg: "#25002F" }}
                         isLoading={props.isSubmitting}
                         type="submit"
                       >
-                        Login
+                        Sign In
                       </Button>
                     </Form>
                   )}
                 </Formik>
               </Flex>
             </Flex>
-  
-            <Flex justify='end'>
-              <Image src="/grayart.png" alt="gray2art" w='70%' />
-            </Flex>
           </Flex>
-        </div>
       </Layout>
     );
   };

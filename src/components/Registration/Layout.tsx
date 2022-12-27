@@ -14,7 +14,7 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
 
   return (
     <Center>
-    <Box minH="100vh" minW='full' bg="gray.300">
+    <Box minH="100vh" minW='full' bgImg="/qpbg.png">
 
       <Flex justify='center'>
         {children}

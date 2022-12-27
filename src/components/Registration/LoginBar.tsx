@@ -8,22 +8,24 @@ export default function LoginBar({ onOpen, ...rest }: any) {
     <Flex
       display='flex'
       zIndex='3'
-      px={{ base: 4, md: 4, lg: 20}}
+      px={{ base: 4, md: 4, lg: "40px"}}
       top="0"
       bg = "white"
-      position="sticky"      
-      h={14}
+      w="full"
+      position="fixed"      
+      h={16}
       alignItems="center"      
       justifyContent={{ base: "space-between", md: "space-between" }}
+      boxShadow="md"
      
       {...rest}
     >
       <Flex justify='flex-start' onClick={() => router.push('/')} cursor='pointer'>
-        <Image src="/qpsicon.png" alt="qps logo" w={20} />
+        <Image src="/qpsfull.svg" alt="qps logo" w={60} pointerEvents='none' />
       </Flex>
       
       <Flex justify='flex-end'>
-        <Button>
+        <Button px={8} py={5} borderWidth={1} borderColor="#400050" bg="#F9E0FF" color="#400050">
           Create an Account
         </Button>
       </Flex>     
