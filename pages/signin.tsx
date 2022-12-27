@@ -22,7 +22,7 @@ import {
   import LoginBar from "../src/components/Registration/LoginBar";
   import { useRouter } from "next/router";
   
-  const Signin = () => {
+const Signin = () => {
     function validateEmail(value: string) {
       let error;
       if (!value) {
