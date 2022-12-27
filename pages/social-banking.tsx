@@ -1,10 +1,12 @@
 import React from "react";
 import { Text, Center } from "@chakra-ui/react";
 
-export const SocialBanking = () => {
+const SocialBanking = () => {
     return(
         <Center>
             <Text> Bank with Friends </Text>
         </Center>
     )
 }
+
+export default SocialBanking;
