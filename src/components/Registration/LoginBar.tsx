@@ -1,8 +1,11 @@
 import { IconButton, Flex, Image, Box, Center, Button  } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import React from "react";
 
 export default function LoginBar({ onOpen, ...rest }: any) {
   const router = useRouter(); 
+  const [label, setLabel] = React.useState("");
+  const [route, setRoute] = React.useState("");
   return (
  
     <Flex
@@ -25,8 +28,10 @@ export default function LoginBar({ onOpen, ...rest }: any) {
       </Flex>
       
       <Flex justify='flex-end'>
-        <Button px={8} py={5} borderWidth={1} borderColor="#400050" bg="#F9E0FF" color="#400050">
-          Create an Account
+        <Button px={8} py={5} borderWidth={1} borderColor="#400050" bg="#F9E0FF" color="#400050" onClick={() => router.push(
+          router.pathname === '/signin' ? '/signup' : '/signin'
+        )}>
+          { router.pathname === '/signin' ? 'Create an Account' : 'Sign In to Account'}
         </Button>
       </Flex>     
 
