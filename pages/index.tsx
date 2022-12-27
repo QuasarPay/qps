@@ -19,7 +19,7 @@ export default function Home() {
         <div className={styles.description}>
           <NextLink href="/signin" passHref>
             <p>
-              Get access to the Demo
+              Get access to the Demo ⚡
             </p>
           </NextLink>
           <div className={styles.qpsser}>
