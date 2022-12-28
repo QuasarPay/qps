@@ -37,7 +37,10 @@ export default function App({ Component, pageProps}: AppProps) {
     return (
       <ThemeProvider theme={theme}>
         <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <title>Quasar Payment System</title>
+        <meta name="description" content="An Innovative way to transactions" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/qpsicon.png" />
         </Head>
         {progress && <TopBarProgress />}
         <ChakraProvider>
