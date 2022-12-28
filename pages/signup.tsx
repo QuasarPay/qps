@@ -14,7 +14,7 @@ import {
   Link,
   Divider,
 } from "@chakra-ui/react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, validateYupSchema } from "formik";
 import Head from "next/head";
 import { Layout } from "../src/components/Registration/Layout";
 import LoginBar from "../src/components/Registration/LoginBar";
@@ -37,10 +37,15 @@ const Signup = () => {
     return error;
   }
 
-  function validatePass(value: any) {
+  function validatePass(value: string) {
     let error;
     if (!value) {
       error = "Password is required";
+      return error
+    }
+    else if(value.length < 8){
+      error = "Password should be 8 or more characters"
+      return error
     }
     return error;
   }
@@ -79,13 +84,14 @@ const Signup = () => {
           </Text>
           <Flex direction="column" mt={5}>
             <Formik
-              initialValues={{ firstname: "", lastname: "", email: "" }}
+              initialValues={{ firstname: "", lastname: "", email: "", password: "" }}
               onSubmit={(values, actions) => {
+                window.localStorage.setItem('user', JSON.stringify(values))
                 setTimeout(() => {
                   alert(JSON.stringify(values, null, 2));
                   actions.setSubmitting(false);
                 }, 1000);
-                router.push("/");
+                router.push("/onboarding");
               }}
             >
               {(props) => (
@@ -94,14 +100,15 @@ const Signup = () => {
                     {({ field, form }: any) => (
                       <FormControl
                         isInvalid={form.errors.firstname && form.touched.firstname}
+                        mb={2}
                       >
                         <FormLabel>First Name</FormLabel>
                         <Input
                           {...field}
+                          focusBorderColor= '#400050'
                           placeholder="Naruto"
                           type="text"
                           variant="outline"
-                          mb={2}
                         />
                         <FormErrorMessage>{form.errors.firstname}</FormErrorMessage>
                       </FormControl>
@@ -112,14 +119,15 @@ const Signup = () => {
                     {({ field, form }: any) => (
                       <FormControl
                         isInvalid={form.errors.lastname && form.touched.lastname}
+                        mb={2}
                       >
                         <FormLabel>Last Name</FormLabel>
                         <Input
                           {...field}
+                          focusBorderColor= '#400050'
                           placeholder="Uchiha"
                           type="text"
                           variant="outline"
-                          mb={2}
                         />
                         <FormErrorMessage>{form.errors.lastname}</FormErrorMessage>
                       </FormControl>
@@ -130,14 +138,15 @@ const Signup = () => {
                     {({ field, form }: any) => (
                       <FormControl
                         isInvalid={form.errors.email && form.touched.email}
+                        mb={2}
                       >
                         <FormLabel>Email Address</FormLabel>
                         <Input
                           {...field}
+                          focusBorderColor= '#400050'
                           placeholder="example@gmail.com"
                           type="email"
                           variant="outline"
-                          mb={2}
                         />
                         <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                       </FormControl>
@@ -154,6 +163,7 @@ const Signup = () => {
                         <FormLabel>Password</FormLabel>
                         <Input
                           {...field}
+                          focusBorderColor= '#400050'
                           placeholder="********"
                           type="password"
                           variant="outline"

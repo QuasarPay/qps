@@ -9,26 +9,23 @@ const breakpoints = {
     '2xl': '1536px',
   }
 
-const config: ThemeConfig = {
-  initialColorMode: 'dark',
-  useSystemColorMode: false,
-}
-
 const theme = extendTheme({
-  config,
-        fonts: {
+    fonts: {
         heading: 'Mulish',
-        body: 'Mulish',       
+        body: 'Mulish',
+
     },
     breakpoints,
     components: {
-        Button: { baseStyle: {_focus: { boxShadow: 'none'}}}       
+        Button: { baseStyle: {_focus: { boxShadow: 'none'}}},
     },
     styles:{
         global: {
             'html, body': {
-                bg: 'gray.200'
-            }
+                bg: 'gray.200',
+                color: '#10151D',
+            },
+
         }
     }
     
