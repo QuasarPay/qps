@@ -19,6 +19,7 @@ import Head from "next/head";
 import { Layout } from "../src/components/Registration/Layout";
 import LoginBar from "../src/components/Registration/LoginBar";
 import { useRouter } from "next/router";
+import React from "react";
 
 const Signup = () => {
     function validateName(value: string) {

@@ -20,6 +20,7 @@ import NextLink from "next/link";
 import { Layout } from "../src/components/Registration/Layout";
 import LoginBar from "../src/components/Registration/LoginBar";
 import { useRouter } from "next/router";
+import React from "react";
 
 const Signin = () => {
   function validateEmail(value: string) {

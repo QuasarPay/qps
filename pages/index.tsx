@@ -3,6 +3,7 @@ import Image from 'next/image'
 import NextLink from "next/link"
 import { Mulish } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import React from 'react'
 
 const mulish = Mulish({ subsets: ['latin'], weight:'400' })
 
