@@ -8,8 +8,12 @@ const breakpoints = {
     xl: '1200px',
     '2xl': '1536px',
   }
-
+const config: ThemeConfig = {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+}
 const theme = extendTheme({
+    config,
     fonts: {
         heading: 'Mulish',
         body: 'Mulish',
