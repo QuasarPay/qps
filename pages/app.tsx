@@ -1,7 +1,5 @@
 import React from "react";
 import { Text, Center, Flex, Avatar, Box } from "@chakra-ui/react";
-import Header from "../src/components/Layout/Header";
-import LeftBar from "../src/components/Layout/LeftBar";
 import Container from "../src/components/Layout/Container";
 
 const MyApp = () => {
