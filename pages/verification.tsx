@@ -75,7 +75,7 @@ const Verification = () => {
             Your account is almost ready, just input the correct code we sent to your
             phone number to complete this process
           </Text>
-          
+
           <Flex direction="column" mt={10} align="center">
             <Formik
               initialValues={{
@@ -109,12 +109,12 @@ const Verification = () => {
                       >
                         <HStack>
                           <PinInput placeholder="" otp focusBorderColor= '#400050'>
-                            <PinInputField h="70px" w="50px" />
-                            <PinInputField h="70px" w="50px" />
-                            <PinInputField h="70px" w="50px" />
-                            <PinInputField h="70px" w="50px" />
-                            <PinInputField h="70px" w="50px" />
-                            <PinInputField h="70px" w="50px" />
+                            <PinInputField {...field} h="70px" w="50px" />
+                            <PinInputField {...field} h="70px" w="50px" />
+                            <PinInputField {...field} h="70px" w="50px" />
+                            <PinInputField {...field} h="70px" w="50px" />
+                            <PinInputField {...field} h="70px" w="50px" />
+                            <PinInputField {...field} h="70px" w="50px" />
                           </PinInput>
                         </HStack>
                         <FormErrorMessage>{form.errors.otp}</FormErrorMessage>

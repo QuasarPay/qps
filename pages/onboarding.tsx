@@ -86,7 +86,7 @@ const Onboarding = () => {
           <Flex direction="column" mt={5}>
             <Formik
               initialValues={{
-                profileImg: data.image,
+                profileImg: "",
                 username: "",
                 phoneNumber: "",
                 gender: "",
