@@ -13,6 +13,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/mulish": "^4.5.13",
+    "@lottiefiles/react-lottie-player": "^3.5.0",
     "@next/font": "13.0.7",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
@@ -27,6 +28,7 @@
     "react": "18.2.0",
     "react-chartjs-2": "^5.1.0",
     "react-dom": "18.2.0",
+    "react-file-base64": "^1.0.3",
     "react-icons": "^4.7.1",
     "react-topbar-progress-indicator": "^4.1.1",
     "typescript": "4.9.4"

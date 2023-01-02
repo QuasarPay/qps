@@ -16,7 +16,7 @@ export const Layout: React.FC<LayoutProps> = ({children}) => {
     <Center>
     <Box minH="100vh" minW='full' bgImg="/qpbg.png" animation={"2s rotate linear infinite"} >
 
-      <Flex justify='center'>
+      <Flex justify='center' color="#10151D" textColor="#10151D">
         {children}
       </Flex>
       

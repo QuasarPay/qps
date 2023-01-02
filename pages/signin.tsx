@@ -12,7 +12,7 @@ import {
   InputRightAddon,
   InputGroup,
   Link,
-  Divider,
+  useToast,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import { Formik, Form, Field } from "formik";
@@ -20,6 +20,7 @@ import NextLink from "next/link";
 import { Layout } from "../src/components/Registration/Layout";
 import LoginBar from "../src/components/Registration/LoginBar";
 import { useRouter } from "next/router";
+import React from "react";
 
 const Signin = () => {
   function validateEmail(value: string) {
@@ -39,6 +40,7 @@ const Signin = () => {
   }
 
   const router = useRouter();
+  const toast = useToast();
 
   return (
     <Layout>
@@ -73,11 +75,24 @@ const Signin = () => {
             <Formik
               initialValues={{ name: "" }}
               onSubmit={(values, actions) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                  actions.setSubmitting(false);
-                }, 1000);
-                router.push("/");
+                window.localStorage.setItem('user', JSON.stringify(values))
+                // setTimeout(() => {
+                //   alert(JSON.stringify(values, null, 2));
+                // }, 1000);
+                actions.setSubmitting(false);
+                const data = JSON.parse(window.localStorage.getItem('user'.toString())!)
+                toast({
+                  title: "Congratulations🎉🎉",
+                  description: `Welcome back, ${data.name}`,
+                  status: "success",
+                  variant: "left-accent",
+                  duration: 5000,
+                  isClosable: true,
+                  position: 'top-right'
+                });
+              //   setTimeout(() => {
+              //     router.push("/app");
+              //   }, 1000)
               }}
             >
               {(props) => (
@@ -90,6 +105,7 @@ const Signin = () => {
                         <FormLabel>Email Address</FormLabel>
                         <Input
                           {...field}
+                          focusBorderColor= '#400050'
                           placeholder="example@gmail.com"
                           type="email"
                           variant="outline"
@@ -110,6 +126,7 @@ const Signin = () => {
                         <FormLabel>Password</FormLabel>
                         <Input
                           {...field}
+                          focusBorderColor= '#400050'
                           placeholder="********"
                           type="password"
                           variant="outline"
