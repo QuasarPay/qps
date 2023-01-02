@@ -14,7 +14,7 @@ import {
   Link,
   Divider,
 } from "@chakra-ui/react";
-import { Formik, Form, Field, validateYupSchema } from "formik";
+import { Formik, Form, Field } from "formik";
 import Head from "next/head";
 import { Layout } from "../src/components/Registration/Layout";
 import LoginBar from "../src/components/Registration/LoginBar";
