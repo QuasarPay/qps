@@ -89,7 +89,6 @@ const Signup = () => {
               onSubmit={(values, actions) => {
                 window.localStorage.setItem('user', JSON.stringify(values))
                 setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
                   actions.setSubmitting(false);
                 }, 1000);
                 router.push("/onboarding");

@@ -90,9 +90,9 @@ const Signin = () => {
                   isClosable: true,
                   position: 'top-right'
                 });
-              //   setTimeout(() => {
-              //     router.push("/app");
-              //   }, 1000)
+                setTimeout(() => {
+                  router.push("/app");
+                }, 1000)
               }}
             >
               {(props) => (

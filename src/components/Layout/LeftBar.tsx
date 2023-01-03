@@ -1,6 +1,6 @@
 import { Box, Text, Flex, Icon, Image } from "@chakra-ui/react";
 import React from "react";
-import { IoGridOutline, IoCubeOutline, IoCardOutline } from "react-icons/io5";
+import { IoSettingsOutline, IoCubeOutline, IoCardOutline } from "react-icons/io5";
 import { RxDashboard, RxCounterClockwiseClock } from "react-icons/rx";
 import { useRouter } from "next/router";
 
@@ -19,6 +19,7 @@ const LeftBar = () => {
       align="center"
       justify="start"
       zIndex={2}
+      display={{ base: 'none', md: 'flex'}}
     >
       <Image
         src="/qpsfull.svg"
@@ -120,6 +121,30 @@ const LeftBar = () => {
         <Icon as={RxCounterClockwiseClock} w={6} h={6} mr={2} />
         <Text fontSize={20} fontWeight="400">
           Transactions
+        </Text>
+      </Flex>
+
+      <Flex
+        direction="row"
+        mt={5}
+        w="full"
+        py={2}
+        px={4}
+        align="center"
+        role="group"
+        _hover={{
+          color: "#FFFFFF",
+          bg: router.pathname === "/app/settings" ? "#25002F" : "#400050",
+        }}
+        borderRadius="md"
+        cursor="pointer"
+        color={router.pathname === "/app/settings" ? "#ffffff" : "#868686"}
+        bg={router.pathname === "/app/settings" ? "#400050" : 'none'}
+        onClick={() => router.push("/app/settings")}
+      >
+        <Icon as={IoSettingsOutline} w={6} h={6} mr={2} />
+        <Text fontSize={20} fontWeight="400">
+          Settings
         </Text>
       </Flex>
 
