@@ -1,7 +1,13 @@
 import { Box, Text, Flex, Icon, Image } from "@chakra-ui/react";
 import React from "react";
-import { IoSettingsOutline, IoCubeOutline, IoCardOutline } from "react-icons/io5";
-import { RxDashboard, RxCounterClockwiseClock } from "react-icons/rx";
+import {
+  IoSettingsOutline,
+  IoCubeOutline,
+  IoCardOutline,
+  IoCalculatorOutline,
+} from "react-icons/io5";
+import { RxDashboard, RxCounterClockwiseClock, RxCaretRight, RxUpdate } from "react-icons/rx";
+import { RiHandHeartLine } from "react-icons/ri";
 import { useRouter } from "next/router";
 
 const LeftBar = () => {
@@ -16,10 +22,9 @@ const LeftBar = () => {
       mx="auto"
       px={5}
       py={4}
-      align="center"
       justify="start"
       zIndex={2}
-      display={{ base: 'none', md: 'flex'}}
+      display={{ base: "none", md: "flex" }}
     >
       <Image
         src="/qpsfull.svg"
@@ -30,7 +35,7 @@ const LeftBar = () => {
 
       <Flex
         direction="row"
-        mt={10}
+        mt={8}
         w="full"
         py={2}
         px={4}
@@ -47,14 +52,14 @@ const LeftBar = () => {
         onClick={() => router.push("/app")}
       >
         <Icon as={RxDashboard} w={6} h={6} mr={2} />
-        <Text fontSize={20} fontWeight="400">
+        <Text fontSize={16} fontWeight="400">
           Dashboard{" "}
         </Text>
       </Flex>
 
       <Flex
         direction="row"
-        mt={5}
+        mt={2}
         w="full"
         py={2}
         px={4}
@@ -71,14 +76,14 @@ const LeftBar = () => {
         onClick={() => router.push("/loans")}
       >
         <Icon as={IoCubeOutline} w={6} h={6} mr={2} />
-        <Text fontSize={20} fontWeight="400">
+        <Text fontSize={16} fontWeight="400">
           Loans
         </Text>
       </Flex>
 
       <Flex
         direction="row"
-        mt={5}
+        mt={2}
         w="full"
         py={2}
         px={4}
@@ -95,14 +100,14 @@ const LeftBar = () => {
         onClick={() => router.push("/app/cards")}
       >
         <Icon as={IoCardOutline} w={6} h={6} mr={2} />
-        <Text fontSize={20} fontWeight="400">
+        <Text fontSize={16} fontWeight="400">
           Cards
         </Text>
       </Flex>
 
       <Flex
         direction="row"
-        mt={5}
+        mt={2}
         w="full"
         py={2}
         px={4}
@@ -115,18 +120,18 @@ const LeftBar = () => {
         borderRadius="md"
         cursor="pointer"
         color={router.pathname === "/app/transactions" ? "#ffffff" : "#868686"}
-        bg={router.pathname === "/app/transactions" ? "#400050" : 'none'}
+        bg={router.pathname === "/app/transactions" ? "#400050" : "none"}
         onClick={() => router.push("/app/transactions")}
       >
         <Icon as={RxCounterClockwiseClock} w={6} h={6} mr={2} />
-        <Text fontSize={20} fontWeight="400">
+        <Text fontSize={16} fontWeight="400">
           Transactions
         </Text>
       </Flex>
 
       <Flex
         direction="row"
-        mt={5}
+        mt={2}
         w="full"
         py={2}
         px={4}
@@ -139,16 +144,153 @@ const LeftBar = () => {
         borderRadius="md"
         cursor="pointer"
         color={router.pathname === "/app/settings" ? "#ffffff" : "#868686"}
-        bg={router.pathname === "/app/settings" ? "#400050" : 'none'}
+        bg={router.pathname === "/app/settings" ? "#400050" : "none"}
         onClick={() => router.push("/app/settings")}
       >
         <Icon as={IoSettingsOutline} w={6} h={6} mr={2} />
-        <Text fontSize={20} fontWeight="400">
+        <Text fontSize={16} fontWeight="400">
           Settings
         </Text>
       </Flex>
 
+      <Flex direction="column" mt={4} px={4}>
+        <Text fontSize={14} fontWeight={600}>
+          Quick Links
+        </Text>
+        <Flex direction="column" ml={2}>
 
+          <Flex
+            direction="row"
+            mt={2}
+            w="full"
+            py={2}
+            px={4}
+            align="center"
+            role="group"
+            _hover={{
+              bg: "#DADADA",
+            }}
+            borderRadius="full"
+            cursor="pointer"
+            color="#10151D"
+          >
+            <Flex
+              bg="#0CA612"
+              align="center"
+              justify="center"
+              p={1}
+              w="23px"
+              h="23px"
+              borderRadius="full"
+            >
+              <Text color="#fff" fontSize={16}>
+                $
+              </Text>
+            </Flex>
+            <Text ml={2} fontSize={14} fontWeight="500">
+              Send Money
+            </Text>
+            <Icon as={RxCaretRight} w={5} h={5} ml={9} />
+          </Flex>
+
+          <Flex
+            direction="row"
+            mt={2}
+            w="full"
+            py={2}
+            px={4}
+            align="center"
+            role="group"
+            _hover={{
+              bg: "#DADADA",
+            }}
+            borderRadius="full"
+            cursor="pointer"
+            color="#10151D"
+          >
+            <Flex
+              bg="#0066FF"
+              align="center"
+              justify="center"
+              p={1}
+              w="23px"
+              h="23px"
+              borderRadius="full"
+            >
+            <Icon as={RiHandHeartLine} w={4} h={4} color="#fff" />
+            </Flex>
+            <Text ml={2} fontSize={14} fontWeight="500">
+              Request Funds
+            </Text>
+            <Icon as={RxCaretRight} w={5} h={5} ml={6} />
+          </Flex>
+
+          <Flex
+            direction="row"
+            mt={2}
+            w="full"
+            py={2}
+            px={4}
+            align="center"
+            role="group"
+            _hover={{
+              bg: "#DADADA",
+            }}
+            borderRadius="full"
+            cursor="pointer"
+            color="#10151D"
+          >
+            <Flex
+              bg="#ffd700"
+              align="center"
+              justify="center"
+              p={1}
+              w="23px"
+              h="23px"
+              borderRadius="full"
+            >
+            <Icon as={RxUpdate} w={4} h={4} color="#fff" />
+            </Flex>
+            <Text ml={2} fontSize={14} fontWeight="500">
+              Subscriptions
+            </Text>
+            <Icon as={RxCaretRight} w={5} h={5} ml={8} />
+          </Flex>
+
+          <Flex
+            direction="row"
+            mt={2}
+            w="full"
+            py={2}
+            px={4}
+            align="center"
+            role="group"
+            _hover={{
+              bg: "#DADADA",
+            }}
+            borderRadius="full"
+            cursor="pointer"
+            color="#10151D"
+          >
+            <Flex
+              bg="#FF7070"
+              align="center"
+              justify="center"
+              p={1}
+              w="23px"
+              h="23px"
+              borderRadius="full"
+            >
+            <Icon as={IoCalculatorOutline} w={4} h={4} color="#fff" />
+            </Flex>
+            <Text ml={2} fontSize={14} fontWeight="500">
+              Credit Calculator
+            </Text>
+            <Icon as={RxCaretRight} w={5} h={5} ml={3} />
+          </Flex>
+
+        </Flex>
+      </Flex>
     </Flex>
   );
 };
