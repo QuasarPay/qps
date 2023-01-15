@@ -34,18 +34,6 @@ const Verification = () => {
     return error;
   }
 
-  function validatePhoneNumber(value: string) {
-    let error;
-    if (!value) {
-      error = "Phone Number is required";
-      return error;
-    } else if (value.length < 11) {
-      error = "Phone Number is invalid";
-      return error;
-    }
-    return error;
-  }
-
   const router = useRouter();
   const toast = useToast();
 
@@ -82,10 +70,6 @@ const Verification = () => {
                 otp: "",
               }}
               onSubmit={(values, actions) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                  actions.setSubmitting(false);
-                }, 1000);
                 toast({
                     title: "Congratulations🎉🎉",
                     description: "Your account has been created",
@@ -95,6 +79,7 @@ const Verification = () => {
                     isClosable: true,
                     position: 'top-right'
                   });
+                  actions.setSubmitting(false)
                   setTimeout(() => {
                     router.push("/app");
                   }, 1000)

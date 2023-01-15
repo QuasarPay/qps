@@ -27,7 +27,7 @@ const Greetings = () => {
               {" "}
               {format(new Date(), "do MMM yyyy")}
               <Text fontSize={12} fontWeight={400} color="#404040">
-              {format(new Date(), "H:m, z ")}
+              {format(new Date(), "H:mm, z ")}
               </Text>{" "}
             </Text>
           </Flex>
