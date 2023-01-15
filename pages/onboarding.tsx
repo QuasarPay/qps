@@ -93,12 +93,12 @@ const Onboarding = () => {
                 country: "",
               }}
               onSubmit={(values, actions) => {
+                values.profileImg = data.image
                 setTimeout(() => {
                   window.localStorage.setItem(
                     "profile",
                     JSON.stringify(values)
                   );
-                  alert(JSON.stringify(values, null, 2));
                   actions.setSubmitting(false);
                 }, 1000);
                 router.push("/verification");
@@ -112,7 +112,6 @@ const Onboarding = () => {
                         isInvalid={
                           form.errors.profileImg && form.touched.profileImg
                         }
-                      
                       >
                         <Flex align="center" ml={6} mb={4}>
                                 <Avatar src={data.image} size="lg" mr={5} />
