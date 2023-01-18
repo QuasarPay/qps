@@ -1,7 +1,6 @@
-import { Box, Text, Flex, Icon, Image } from "@chakra-ui/react";
+import { Box, Text, Flex, Icon, Image, Divider } from "@chakra-ui/react";
 import React from "react";
-import { IoEyeOutline, IoCubeOutline, IoCardOutline } from "react-icons/io5";
-import { RxDashboard, RxCounterClockwiseClock } from "react-icons/rx";
+import { IoEyeOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
 
 const RightBar = () => {
@@ -79,11 +78,72 @@ const RightBar = () => {
             mt={5}
             w="full"
             py={2}
-            color="#fff"
         >
             <Text fontSize={20} fontWeight="500" color="#400050">
             Transaction History
             </Text>
+            <Flex direction="column" mt={2} ml={3}>
+                <Text fontSize={12} mb={1} >
+                    Upcoming Payments
+                </Text>
+                <Text fontSize={18} fontWeight="500" mb={1}>
+                    Spotify
+                </Text>
+                <Text fontSize={12}>Due Date: Jan 25</Text>
+            </Flex>
+            <Divider mt={2} />
+
+            <Flex direction="column" mt={2} ml={3}>
+                <Flex direction="row"  justify="space-between">
+                    <Flex direction="column">
+                        <Text fontSize={12} mb={1} >
+                            Jan 18th
+                        </Text>
+                    </Flex>
+
+                    <Flex direction="column" justify="end">
+                        <Text fontSize={12} mb={1} >
+                            - 25,000 NGN
+                        </Text>
+
+                    </Flex>
+                </Flex>
+
+                <Flex direction="row" justify="space-between">
+                    <Flex direction="column">
+                        <Text fontSize={14} fontWeight="500" mb={1}>
+                            Transfer to Samuel Chinedu
+                        <Text fontSize={12}>
+                            16:45
+                        </Text>
+                        </Text>
+                    </Flex>
+
+                    <Flex direction="column" justify="end">
+                        <Text fontSize={14} fontWeight="500" mb={1} color="#B50000">
+                            - 55,000 NGN
+                        </Text>
+                    </Flex>
+                </Flex>
+
+                <Flex direction="row" mt={2} justify="space-between">
+                    <Flex direction="column">
+                        <Text fontSize={14} fontWeight="500" mb={1} w="180px">
+                            Loan Request accepted by Jennifer Garnt
+                        <Text fontSize={12}>
+                            12:33
+                        </Text>
+                        </Text>
+                    </Flex>
+
+                    <Flex direction="column" justify="end">
+                        <Text fontSize={14} fontWeight="500" mb={1} color="#0CA612">
+                            + 30,000 NGN
+                        </Text>
+                    </Flex>
+                </Flex>
+
+            </Flex>
         </Flex>
 
     </Flex>
