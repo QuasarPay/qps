@@ -2,9 +2,11 @@ import { Box, Text, Flex, Icon, Image, Divider } from "@chakra-ui/react";
 import React from "react";
 import { IoEyeOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const RightBar = () => {
     const user = JSON.parse(window.localStorage.getItem("user")!);
+    const data = axios.get('http://127.0.0.1:5000/users').then((response) => {return response.data})
     const router = useRouter();
     return (
         <Flex
@@ -69,7 +71,7 @@ const RightBar = () => {
         </Text>
         <Flex direction="column" mt={2}>
             <Text fontSize={12}>Card Holder
-                <Text fontSize={16} fontWeight={500}>{user.firstname} {user.lastname}</Text>
+                <Text fontSize={16} fontWeight={500}>{user?.firstname} {user?.lastname}</Text>
             </Text>
         </Flex>
 
