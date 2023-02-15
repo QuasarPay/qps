@@ -38,16 +38,20 @@ import {
   import { RiContactsBookLine } from "react-icons/ri";
   import React from "react";
   import { useRouter } from "next/router";
+  import axios from 'axios';
   
   export default function UserProfile() {
     const router = useRouter();
     const data = JSON.parse(window.localStorage.getItem('profile')!)
     const user = JSON.parse(window.localStorage.getItem('user')!)
+    const real = axios.get('http://127.0.0.1:5000/users').then((response) => {
+      return response
+    })
   
     return (
           <Flex
             _hover={{ bg: "#E6E6E6", color: "#000a16" }}
-            borderRadius="10px 10px 30px 10px"
+            borderRadius="10px"
             py={2}
             px={2}
             bg={{ base: "none", md: "none" }}
@@ -75,10 +79,10 @@ import {
                     spacing="1px"
                   >
                     <Text fontWeight={600} fontSize="0.9em">
-                    {user.firstname} {user.lastname} 
+                    {user?.firstname} {user?.lastname} 
                     </Text>
                   </VStack>
-                  <Avatar name={user.firstname} src={data.profileImg} size="md" ml={1} mr={1} borderRadius="10px 10px 30px 10px" />
+                  <Avatar name={user?.firstname} src={ data?.profileImg } size="md" ml={1} mr={1} borderRadius="10px" />
                 </HStack>
               </MenuButton>
               <MenuList
@@ -91,7 +95,11 @@ import {
               >
                 <MenuGroup title="My Account">
                   <NextLink href="#"  passHref>
-                    <MenuItem icon={<CgProfile />}>Profile</MenuItem>
+                    <MenuItem icon={<CgProfile />}
+                      onClick={() => {
+                        console.log(real)
+                      }}
+                    >Profile</MenuItem>
                   </NextLink>
                   <MenuItem icon={<RiContactsBookLine />}>My Loans</MenuItem>
                   <MenuItem icon={<FiSettings />}>Settings</MenuItem>
