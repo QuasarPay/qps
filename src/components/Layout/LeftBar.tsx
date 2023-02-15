@@ -8,6 +8,14 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import {
@@ -16,7 +24,7 @@ import {
   IoCardOutline,
   IoCalculatorOutline,
   IoEllipsisHorizontalCircle,
-  IoPeopleCircleOutline
+  IoPeopleCircleOutline,
 } from "react-icons/io5";
 import {
   RxDashboard,
@@ -28,8 +36,21 @@ import { RiHandHeartLine } from "react-icons/ri";
 import { TbMicrophone } from "react-icons/tb";
 import { useRouter } from "next/router";
 
+import RecorderControls from "../../Recorder/components/recorder-controls";
+import RecordingsList from "../../Recorder/components/recordings-list";
+import useRecorder from "../../Recorder/hooks/use-recorder";
+import { UseRecorder } from "../../Recorder/types/recorder";
+
 const LeftBar = () => {
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { recorderState, ...handlers }: UseRecorder = useRecorder();
+  const { audio } = recorderState;
+  function CloseChat() {
+    onClose();
+    handlers.cancelRecording();
+  }
+
   return (
     <Flex
       direction="column"
@@ -374,10 +395,32 @@ const LeftBar = () => {
           borderRadius={"md"}
           mt="20px"
           _hover={{ bg: "#56006B", color: "#FFFFFF" }}
+          onClick={onOpen}
         >
           Start Audio Chat
         </Button>
       </Flex>
+
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Audio Transaction</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Flex direction="column" align="center">
+              <Text>Audio Query System</Text>
+              <RecorderControls
+                recorderState={recorderState}
+                handlers={handlers}
+              />
+              <RecordingsList audio={audio} />
+            </Flex>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={CloseChat}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Flex>
   );
 };

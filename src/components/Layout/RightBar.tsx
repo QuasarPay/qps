@@ -3,10 +3,11 @@ import React from "react";
 import { IoEyeOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Nextlink from "next/link";
 
 const RightBar = () => {
     const user = JSON.parse(window.localStorage.getItem("user")!);
-    const data = axios.get('http://127.0.0.1:5000/users').then((response) => {return response.data})
+    const data = axios.get('http://127.0.0.1:5000/users').then((response: { data: any; }) => {return response.data})
     const router = useRouter();
     return (
         <Flex
@@ -144,7 +145,11 @@ const RightBar = () => {
                         </Text>
                     </Flex>
                 </Flex>
-
+            <Nextlink href="/app/transactions" passHref>
+                <Text fontWeight={600} color="#400050" mt="5">
+                    See All
+                </Text>
+            </Nextlink>
             </Flex>
         </Flex>
 
