@@ -27,7 +27,36 @@ const theme = extendTheme({
             },
 
         }
-    }
+    },
+    textStyles: {
+        h1: {
+          // you can also use responsive styles
+          fontSize: '3rem',
+          fontWeight: 'bold',
+          lineHeight: '110%',
+          letterSpacing: '-2%',
+          _selection:{
+            background: '#474747',
+            color: '#FFFFFF'
+          }
+        },
+        h2: {
+          fontSize: ['36px', '48px'],
+          fontWeight: 'semibold',
+          lineHeight: '110%',
+          letterSpacing: '-1%',
+          _selection:{
+            background: '#474747',
+            color: '#FFFFFF'
+          }
+        },
+        text: {
+          _selection:{
+            background: '#25002F',
+            color: '#FFFFFF'
+          }
+        }
+      },
     
 })
 
