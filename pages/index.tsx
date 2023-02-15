@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import NextLink from "next/link"
 import { Mulish } from '@next/font/google'
+import { Flex } from "@chakra-ui/react";
 import styles from '../styles/Home.module.css'
 import React from 'react'
 
@@ -36,7 +37,7 @@ export default function Home() {
                 </a>
           </div>
         </div>
-        <div className={styles.center}>
+        <Flex className={styles.center} pointerEvents='none'>
           <div className={styles.qpslogo}>
               <Image
                 src="/qps.svg"
@@ -54,7 +55,7 @@ export default function Home() {
               height={37}
               priority
             />
-        </div>
+        </Flex>
 
         <div className={styles.grid}>
           <NextLink

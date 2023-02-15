@@ -1,0 +1,69 @@
+.recordingsContainer {
+  height: 85%;
+  padding: 0 2rem;
+}
+
+.recordingsContainer h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.noRecords {
+  height: 100%;
+  margin-top: 20px;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.recordingsList::-webkit-scrollbar {
+  width: 5px;
+}
+
+.recordingsList::-webkit-scrollbar-track {
+  background: #e4d3cf;
+}
+
+.recordingsList::-webkit-scrollbar-thumb {
+  background: #099fff;
+}
+
+.recordingsList {
+  max-height: 85%;
+  display: grid;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.record {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+}
+
+.record audio {
+  min-width: 80%;
+  max-width: 60%;
+}
+
+.deleteButtonContainer {
+  min-width: 20%;
+  max-width: 10%;
+  display: grid;
+  place-content: center;
+}
+
+.deleteButton {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  color: #fd1c03;
+}
