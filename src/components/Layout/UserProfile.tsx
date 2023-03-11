@@ -44,7 +44,7 @@ import {
     const router = useRouter();
     const data = JSON.parse(window.localStorage.getItem('profile')!)
     const user = JSON.parse(window.localStorage.getItem('user')!)
-    const real = axios.get('http://127.0.0.1:5000/users').then((response) => {
+    const real = axios.get('http://127.0.0.1:5000/users').then((response: any) => {
       return response
     })
   
