@@ -23,6 +23,7 @@ import LoginBar from "../src/components/Registration/LoginBar";
 import { useRouter } from "next/router";
 import { country } from "../fakedata";
 import FileBase from "react-file-base64";
+import { url } from "inspector";
 
 const Onboarding = () => {
   function validateName(value: string) {
@@ -32,19 +33,6 @@ const Onboarding = () => {
     }
     return error;
   }
-
-  function validatePhoneNumber(value: string) {
-    let error;
-    if (!value) {
-      error = "Phone Number is required";
-      return error;
-    } else if (value.length < 11) {
-      error = "Phone Number is invalid";
-      return error;
-    }
-    return error;
-  }
-
 
   const router = useRouter();
 
@@ -156,28 +144,7 @@ const Onboarding = () => {
                     )}
                   </Field>
 
-                  <Field name="phoneNumber" validate={validatePhoneNumber}>
-                    {({ field, form }: any) => (
-                      <FormControl
-                        isInvalid={
-                          form.errors.phoneNumber && form.touched.phoneNumber
-                        }
-                      >
-                        <FormLabel>Phone Number</FormLabel>
-                        <Input
-                          {...field}
-                          focusBorderColor= '#400050'
-                          placeholder="+234"
-                          type="text"
-                          variant="outline"
-                          mb={2}
-                        />
-                        <FormErrorMessage>
-                          {form.errors.phoneNumber}
-                        </FormErrorMessage>
-                      </FormControl>
-                    )}
-                  </Field>
+
 
                   <Flex direction="row">
                     <Field name="gender" validate={validateName}>
@@ -221,8 +188,11 @@ const Onboarding = () => {
                           >
                             {country.map((p, i) => (
                                 <option value={p.code} key={i}>
-                                    {p.name} 
-                                </option>
+                                  <Flex>
+                                    <Image src={`https://countryflagsapi/png/Nigeria`} alt={p.code} w="20px" h="20px" ml={1} />
+                                   wee - {p.name}
+                                  </Flex>
+                                </option> 
                             ))}
                           </Select>
                           <FormErrorMessage>

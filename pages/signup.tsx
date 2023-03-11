@@ -12,7 +12,7 @@ import {
   InputRightAddon,
   InputGroup,
   Link,
-  Divider,
+  useToast,
 } from "@chakra-ui/react";
 import { Formik, Form, Field } from "formik";
 import Head from "next/head";
@@ -20,6 +20,7 @@ import { Layout } from "../src/components/Registration/Layout";
 import LoginBar from "../src/components/Registration/LoginBar";
 import { useRouter } from "next/router";
 import React from "react";
+const axios = require("axios");
 
 const Signup = () => {
     function validateName(value: string) {
@@ -51,7 +52,20 @@ const Signup = () => {
     return error;
   }
 
+  function validatePhoneNumber(value: string) {
+    let error;
+    if (!value) {
+      error = "Phone Number is required";
+      return error;
+    } else if (value.length < 11) {
+      error = "Phone Number is invalid";
+      return error;
+    }
+    return error;
+  }
+
   const router = useRouter();
+  const toast = useToast();
 
   return (
     <Layout>
@@ -85,13 +99,33 @@ const Signup = () => {
           </Text>
           <Flex direction="column" mt={5}>
             <Formik
-              initialValues={{ firstname: "", lastname: "", email: "", password: "" }}
+              initialValues={{ firstname: "", lastname: "", email: "", phoneNumber: "", password: "" }}
               onSubmit={(values, actions) => {
-                window.localStorage.setItem('user', JSON.stringify(values))
+                // window.localStorage.setItem('user', JSON.stringify(values))
+                axios({
+                  method: 'post',
+                  url: 'http://127.0.0.1:5000/users',
+                  data: values
+                }).then((response: any) =>{ 
+                  console.log(response.data);
+                  console.log(response)
+                  if(response.status === 200 ){
+                    toast({
+                      title: 'Account created.',
+                      description: `${response.data.message}`,
+                      status: 'success',
+                      variant: 'left-accent',
+                      position: 'top-right',
+                      duration: 5000,
+                      isClosable: true,
+                    })                    
+                  }
+                })
                 setTimeout(() => {
                   actions.setSubmitting(false);
                 }, 1000);
-                router.push("/onboarding");
+                
+                router.push("/app");
               }}
             >
               {(props) => (
@@ -149,6 +183,29 @@ const Signup = () => {
                           variant="outline"
                         />
                         <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                      </FormControl>
+                    )}
+                  </Field>
+
+                  <Field name="phoneNumber" validate={validatePhoneNumber}>
+                    {({ field, form }: any) => (
+                      <FormControl
+                        isInvalid={
+                          form.errors.phoneNumber && form.touched.phoneNumber
+                        }
+                      >
+                        <FormLabel>Phone Number</FormLabel>
+                        <Input
+                          {...field}
+                          focusBorderColor= '#400049'
+                          placeholder="+233"
+                          type="text"
+                          variant="outline"
+                          mb={1}
+                        />
+                        <FormErrorMessage>
+                          {form.errors.phoneNumber}
+                        </FormErrorMessage>
                       </FormControl>
                     )}
                   </Field>

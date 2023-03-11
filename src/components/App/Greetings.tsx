@@ -7,17 +7,17 @@ const Greetings = () => {
   const user = JSON.parse(window.localStorage.getItem("user")!);
   return (
     <Box bg="#fff" borderRadius="md" h="220px" w="760px" py={2} px={4}>
-      <Flex direction="row">
-        <Flex justify="space-between" direction="column">
+      <Flex direction="row" justify="space-between" w='full'>
+        <Flex direction="column" w='full'>
           <Text color="#400050" fontSize={24} fontWeight={600}>
-            Hello, {user.firstname}👋 
+            Hello, {user?.firstname}👋 
             <Text fontSize={14} fontWeight={400} color="#404040">
               {" "}
               What would you like to do today?{" "}
             </Text>{" "}
           </Text>         
         </Flex>
-          <Flex direction="column" ml="350px">
+          <Flex direction="column" w="full">
           <Text
               textAlign="right"
               color="#400050"

@@ -8,6 +8,14 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import {
@@ -16,6 +24,7 @@ import {
   IoCardOutline,
   IoCalculatorOutline,
   IoEllipsisHorizontalCircle,
+  IoPeopleCircleOutline,
 } from "react-icons/io5";
 import {
   RxDashboard,
@@ -27,8 +36,21 @@ import { RiHandHeartLine } from "react-icons/ri";
 import { TbMicrophone } from "react-icons/tb";
 import { useRouter } from "next/router";
 
+import RecorderControls from "../../Recorder/components/recorder-controls";
+import RecordingsList from "../../Recorder/components/recordings-list";
+import useRecorder from "../../Recorder/hooks/use-recorder";
+import { UseRecorder } from "../../Recorder/types/recorder";
+
 const LeftBar = () => {
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { recorderState, ...handlers }: UseRecorder = useRecorder();
+  const { audio } = recorderState;
+  function CloseChat() {
+    onClose();
+    handlers.cancelRecording();
+  }
+
   return (
     <Flex
       direction="column"
@@ -90,7 +112,7 @@ const LeftBar = () => {
         cursor="pointer"
         color={router.pathname === "/app/loans" ? "#ffffff" : "#868686"}
         bg={router.pathname === "/app/loans" ? "#400050" : "none"}
-        onClick={() => router.push("/loans")}
+        onClick={() => router.push("/app/loans")}
       >
         <Icon as={IoCubeOutline} w={6} h={6} mr={2} />
         <Text fontSize={16} fontWeight="400">
@@ -119,6 +141,30 @@ const LeftBar = () => {
         <Icon as={IoCardOutline} w={6} h={6} mr={2} />
         <Text fontSize={16} fontWeight="400">
           Cards
+        </Text>
+      </Flex>
+
+      <Flex
+        direction="row"
+        mt={2}
+        w="full"
+        py={2}
+        px={4}
+        align="center"
+        role="group"
+        _hover={{
+          color: "#FFFFFF",
+          bg: router.pathname === "/app/contacts" ? "#25002F" : "#400050",
+        }}
+        borderRadius="md"
+        cursor="pointer"
+        color={router.pathname === "/app/contacts" ? "#ffffff" : "#868686"}
+        bg={router.pathname === "/app/contacts" ? "#400050" : "none"}
+        onClick={() => router.push("/loans")}
+      >
+        <Icon as={IoPeopleCircleOutline} w={6} h={6} mr={2} />
+        <Text fontSize={16} fontWeight="400">
+          My Contacts
         </Text>
       </Flex>
 
@@ -310,7 +356,9 @@ const LeftBar = () => {
 
       <Flex
         direction="column"
-        mt={28}
+        pos="fixed"
+        bottom={0}
+        mb={2}
         w="210px"
         h="200px"
         py={2}
@@ -347,10 +395,32 @@ const LeftBar = () => {
           borderRadius={"md"}
           mt="20px"
           _hover={{ bg: "#56006B", color: "#FFFFFF" }}
+          onClick={onOpen}
         >
           Start Audio Chat
         </Button>
       </Flex>
+
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Audio Transaction</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Flex direction="column" align="center">
+              <Text>Audio Query System</Text>
+              <RecorderControls
+                recorderState={recorderState}
+                handlers={handlers}
+              />
+              <RecordingsList audio={audio} />
+            </Flex>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={CloseChat}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Flex>
   );
 };
