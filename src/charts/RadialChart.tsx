@@ -29,6 +29,8 @@ const style = {
   marginTop: "-65px"
 };
 
+
+
 export default function RadialChart() {
   return (
     <Flex direction="column" w="350px" h="170px" bg="white" mt={4} borderRadius="md" px={4} py={2}>
