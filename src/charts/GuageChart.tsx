@@ -27,6 +27,10 @@ const options = {
     },
 
     tooltip: {
+        chart: {
+            chartWidth: 500,
+            plotHeight: 300
+          },
         borderWidth: 0,
         backgroundColor: 'none',
         padding: 25,
@@ -36,14 +40,14 @@ const options = {
         },
         valueSuffix: '%',
         pointFormat: '{series.name}<br><span style="font-size:1em; color: {point.color}; font-weight: bold">{point.y}</span>',
-        positioner: function (labelWidth: number) { // Ignore error lines...typescript is being a baby
+        positioner(labelWidth: number): Highcharts.PositionObject {
             return {
                 x: (this.chart.chartWidth - labelWidth) / 2,
                 y: (this.chart.plotHeight / 2) + 15
             };
         }
     },
-
+    
     pane: {
         startAngle: 0,
         endAngle: 360,
