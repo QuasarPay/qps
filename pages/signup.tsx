@@ -101,26 +101,39 @@ const Signup = () => {
             <Formik
               initialValues={{ firstname: "", lastname: "", email: "", phoneNumber: "", password: "" }}
               onSubmit={(values, actions) => {
-                // window.localStorage.setItem('user', JSON.stringify(values))
-                axios({
-                  method: 'post',
-                  url: 'http://127.0.0.1:5000/users',
-                  data: values
-                }).then((response: any) =>{ 
-                  console.log(response.data);
-                  console.log(response)
-                  if(response.status === 200 ){
-                    toast({
-                      title: 'Account created.',
-                      description: `${response.data.message}`,
-                      status: 'success',
-                      variant: 'left-accent',
-                      position: 'top-right',
-                      duration: 5000,
-                      isClosable: true,
-                    })                    
-                  }
-                })
+                window.localStorage.setItem('user', JSON.stringify(values)); // remove this in prod
+                
+                // POST REQUEST TO ENDPOINT
+                // axios({
+                //   method: 'post',
+                //   url: 'http://127.0.0.1:5000/users',
+                //   data: values
+                // }).then((response: any) =>{ 
+                //   console.log(response.data);
+                //   console.log(response)
+                //   if(response.status === 200 ){
+                //     toast({
+                //       title: 'Account created.',
+                //       description: `${response.data.message}`,
+                //       status: 'success',
+                //       variant: 'left-accent',
+                //       position: 'top-right',
+                //       duration: 5000,
+                //       isClosable: true,
+                //     })                    
+                //   }
+                // })
+
+                // delete this also in prod.
+                toast({
+                        title: 'Account created.',
+                        description: 'Your account has been created successfully',
+                        status: 'success',
+                        variant: 'left-accent',
+                        position: 'top-right',
+                        duration: 5000,
+                        isClosable: true,
+                      });     
                 setTimeout(() => {
                   actions.setSubmitting(false);
                 }, 1000);
