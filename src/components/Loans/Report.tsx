@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useReducedMotion } from "framer-motion";
 import { Box, Flex, Text, Icon, Progress, Badge } from "@chakra-ui/react"
 import { RxExit, RxDownload, RxPlus } from "react-icons/rx"
 

@@ -44,9 +44,9 @@ import {
     const router = useRouter();
     const data = JSON.parse(window.localStorage.getItem('profile')!)
     const user = JSON.parse(window.localStorage.getItem('user')!)
-    const real = axios.get('http://127.0.0.1:5000/users').then((response: any) => {
-      return response
-    })
+    // const real = axios.get('http://127.0.0.1:5000/users').then((response: any) => {
+    //   return response
+    // })
   
     return (
           <Flex
@@ -79,10 +79,10 @@ import {
                     spacing="1px"
                   >
                     <Text fontWeight={600} fontSize="0.9em">
-                    {user?.firstname} {user?.lastname} 
+                    {user?.firstname ? user : "John"} {user?.lastname ? user : "Udoumoh"} 
                     </Text>
                   </VStack>
-                  <Avatar name={user?.firstname} src={ data?.profileImg } size="md" ml={1} mr={1} borderRadius="10px" />
+                  <Avatar name={user?.firstname} src={ data?.profileImg ? data : "https://i.imgur.com/mJqC8j2.jpg" } size="md" ml={1} mr={1} borderRadius="10px" />
                 </HStack>
               </MenuButton>
               <MenuList
@@ -96,9 +96,6 @@ import {
                 <MenuGroup title="My Account">
                   <NextLink href="#"  passHref>
                     <MenuItem icon={<CgProfile />}
-                      onClick={() => {
-                        console.log(real)
-                      }}
                     >Profile</MenuItem>
                   </NextLink>
                   <MenuItem icon={<RiContactsBookLine />}>My Loans</MenuItem>

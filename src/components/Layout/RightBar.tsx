@@ -7,7 +7,7 @@ import Nextlink from "next/link";
 
 const RightBar = () => {
     const user = JSON.parse(window.localStorage.getItem("user")!);
-    const data = axios.get('http://127.0.0.1:5000/users').then((response: { data: any; }) => {return response.data})
+    // const data = axios.get('http://127.0.0.1:5000/users').then((response: { data: any; }) => {return response.data})
     const router = useRouter();
     return (
         <Flex
@@ -25,14 +25,14 @@ const RightBar = () => {
         >
         <Flex
             direction="row"
-            mt="75px"
+            mt="70px"
             w="360px"
             h="160px"
             py={2}
             px={4}
             borderRadius="md"
             cursor="pointer"
-            bgImg="/qpscard.png"
+            bgImg="/qpscardpro.png"
             color="#fff"
         >
             <Flex direction="column" justify="start">
@@ -72,7 +72,7 @@ const RightBar = () => {
         </Text>
         <Flex direction="column" mt={2}>
             <Text fontSize={12}>Card Holder
-                <Text fontSize={16} fontWeight={500}>{user?.firstname} {user?.lastname}</Text>
+                <Text fontSize={16} fontWeight={500}>{user?.firstname ? user : "John"} {user?.lastname ? user : "Udoumoh"}</Text>
             </Text>
         </Flex>
 
@@ -115,7 +115,7 @@ const RightBar = () => {
                 <Flex direction="row" justify="space-between">
                     <Flex direction="column">
                         <Text fontSize={14} fontWeight="500" mb={1}>
-                            Transfer to Samuel Chinedu
+                            Transfer to Owolabi Tolani
                         <Text fontSize={12}>
                             16:45
                         </Text>

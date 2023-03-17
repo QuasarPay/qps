@@ -1,24 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# This is the [Quasar Payment System](https://qps.vercel.app/) project.
+![image](https://user-images.githubusercontent.com/69642932/225964316-ae09a2e5-1f13-4208-b13e-2663288f5dbc.png)
+
+
 
 ## Getting Started
-
-First, run the development server:
+First, install the packages & dependencies with 
+```
+yarn add(install)
+# or
+npm install
+```
+run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
+# or
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Active Pages [For Demo]
+- Login/Register (uses localStorage for now)
+- Landing Page (redesign soon*)
+- Dashboard
+- Loans Page (under construction)
+- Contacts & Social Banking Page(to be designed)
+- Transactions???
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
+## Learn More About Next.js
 
 To learn more about Next.js, take a look at the following resources:
 
