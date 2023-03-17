@@ -47,6 +47,7 @@ const Greetings = () => {
             borderRadius="md"
             mr="20px"
             cursor="pointer"
+            _hover={{ transform: "scale(1.03 )" }}
             >
             <Flex bg="#0CA612" align="center" p={1} w="30px" h="30px" borderRadius="md">
                 <Icon as={RxExit} h={5} w={5} />
@@ -64,6 +65,7 @@ const Greetings = () => {
             borderRadius="md"
             mr="20px"
             cursor="pointer"
+            _hover={{ transform: "scale(1.03 )" }}
 
             >
             <Flex bg="#0066FF" justify="center" align="center" p={1} w="30px" h="30px" borderRadius="md">
@@ -81,6 +83,7 @@ const Greetings = () => {
             color="#fff"
             borderRadius="md"
             cursor="pointer"
+            _hover={{ transform: "scale(1.03 )" }}
             >
             <Flex bg="#FFD700" align="center" justify="center" p={1} w="30px" h="30px" borderRadius="md">
                 <Icon as={RxPlus} h={5} w={5} />

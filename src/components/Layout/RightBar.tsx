@@ -115,7 +115,7 @@ const RightBar = () => {
                 <Flex direction="row" justify="space-between">
                     <Flex direction="column">
                         <Text fontSize={14} fontWeight="500" mb={1}>
-                            Transfer to Samuel Chinedu
+                            Transfer to Owolabi Tolani
                         <Text fontSize={12}>
                             16:45
                         </Text>

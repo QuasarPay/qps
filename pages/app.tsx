@@ -2,8 +2,8 @@ import React from "react";
 import { Flex, Text, Image, Button } from "@chakra-ui/react";
 import Container from "../src/components/Layout/Container";
 import Greetings from "../src/components/App/Greetings";
-import GuageChart from "../src/charts/GuageChart";
 import RadialChart from "../src/charts/RadialChart";
+import ExchangeRates from "../src/components/App/ExchangeRates";
 
 const MyApp = () => {
   return (
@@ -38,7 +38,9 @@ const MyApp = () => {
         </Flex>
         <Flex gap="5">
             <RadialChart />
-          <Flex mt={4} w="420px" h="150px" bg="white" borderRadius="md"></Flex>
+          <Flex mt={4} w="420px" h="165px" bg="white" borderRadius="md">
+            <ExchangeRates />
+          </Flex>
         </Flex>
       </Flex>
     </Container>

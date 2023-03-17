@@ -5,20 +5,20 @@ import { RadialBarChart, RadialBar, Legend } from "recharts";
 const data = [
   {
     name: "Daily",
-    uv: 11.47,
-    pv: 3400,
+    uv: 8.66,
+    pv: 2400,
     fill: "#8884d8"
   },
   {
-    name: "Monthly",
+    name: "Weekly",
     uv: 15.69,
-    pv: 4398,
+    pv: 1200,
     fill: "#8dd1e1"
   },
   {
-    name: "Yearly",
-    uv: 6.67,
-    pv: 4900,
+    name: "Monthly",
+    uv: 6.29,
+    pv: 600,
     fill: "#ffc658"
   }
 ];
@@ -33,7 +33,7 @@ const style = {
 
 export default function RadialChart() {
   return (
-    <Flex direction="column" w="320px" h="150px" bg="white" mt={4} borderRadius="md" px={4} py={2}>
+    <Flex direction="column" w="320px" h="165px" bg="white" mt={4} borderRadius="md" px={4} py={2}>
         <Text mb={2} fontWeight={600}>
             Account Limits
         </Text>
