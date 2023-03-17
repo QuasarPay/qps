@@ -243,3 +243,42 @@ export const country = [
     {name: 'Zambia', code: 'ZM'}, 
     {name: 'Zimbabwe', code: 'ZW'} 
   ]
+
+  export const currencyData = [
+      {
+        country: "US",
+        name: "USD",
+        value: "0.0022",
+        code: "NGN",
+        codeValue: "0.0023",
+        trend: "down",
+        trendValue: "-2.08%",
+      },
+      {
+        country: "GB",
+        name: "GBP",
+        value: "0.0018",
+        code: "NGN",
+        codeValue: "0.0015",
+        trend: "up",
+        trendValue: "+2.01%",
+      },
+      {
+        country: "CA",
+        name: "CAD",
+        value: "0.0030",
+        code: "NGN",
+        codeValue: "0.0032",
+        trend: "down",
+        trendValue: "-2.10%",
+      },
+      {
+        country: "EU",
+        name: "EUR",
+        value: "0.0020",
+        code: "NGN",
+        codeValue: "0.0018",
+        trend: "up",
+        trendValue: "+1.12%",
+      },
+  ];
