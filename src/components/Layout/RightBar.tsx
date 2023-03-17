@@ -32,7 +32,7 @@ const RightBar = () => {
             px={4}
             borderRadius="md"
             cursor="pointer"
-            bgImg="/qpscard.png"
+            bgImg="/qpscardpro.png"
             color="#fff"
         >
             <Flex direction="column" justify="start">
