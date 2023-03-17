@@ -6,7 +6,10 @@ import { currencyData } from "../../../fakedata";
 const ExchangeRates = () => {
   return (
     <Flex direction="column" gap="2" py={2} px={4}>
-      <Text fontWeight={600}>Exchange Rates</Text>
+        <Flex justify="space-between" w="350px" align="center">
+            <Text fontWeight={600}>Exchange Rates</Text>
+            <Button variant="link" fontWeight={600} color="#400050">See more</Button>
+        </Flex>
       <Flex direction="column" w="200px" gap={2}>
         {currencyData.map((currency, index) => (
           <Flex key={index} gap="2" fontWeight={500} align="center" justify="space-between">
