@@ -6,11 +6,11 @@ import { RxExit, RxDownload, RxPlus } from "react-icons/rx";
 const Greetings = () => {
   const user = JSON.parse(window.localStorage.getItem("user")!);
   return (
-    <Box bg="#fff" borderRadius="md" h="220px" w="760px" py={2} px={4}>
+    <Box bg="#fff" borderRadius="md" h="190px" w="760px" py={2} px={4}>
       <Flex direction="row" justify="space-between" w='full'>
         <Flex direction="column" w='full'>
           <Text color="#400050" fontSize={24} fontWeight={600}>
-            Hello, {user?.firstname}👋 
+            Hello, {user?.firstname ? user : "John"}👋 
             <Text fontSize={14} fontWeight={400} color="#404040">
               {" "}
               What would you like to do today?{" "}
@@ -36,7 +36,7 @@ const Greetings = () => {
 
 
 
-        <Flex align="center" mt="80px">
+        <Flex align="center" mt="60px">
         <Flex
             bg="rgba(0, 74, 3, 0.8)"
             w="190px"

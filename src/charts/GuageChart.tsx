@@ -10,7 +10,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 const options = {
     chart: {
         type: 'solidgauge',
-        height: '45%',
+        height: '25%',
     },
 
     title: {
