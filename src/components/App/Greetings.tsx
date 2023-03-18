@@ -10,7 +10,7 @@ const Greetings = () => {
       <Flex direction="row" justify="space-between" w='full'>
         <Flex direction="column" w='full'>
           <Text color="#400050" fontSize={24} fontWeight={600}>
-            Hello, {user?.firstname ? user : "John"}👋 
+            Hello, {user ? user[0] : "John"}👋 
             <Text fontSize={14} fontWeight={400} color="#404040">
               {" "}
               What would you like to do today?{" "}

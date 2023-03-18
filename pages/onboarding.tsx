@@ -85,7 +85,7 @@ const Onboarding = () => {
                 setTimeout(() => {
                   window.localStorage.setItem(
                     "profile",
-                    JSON.stringify(values)
+                    JSON.stringify([values.profileImg, values.username, values.gender, values.phoneNumber, values.country])
                   );
                   actions.setSubmitting(false);
                 }, 1000);
