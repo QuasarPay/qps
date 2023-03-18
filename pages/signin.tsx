@@ -107,7 +107,7 @@ const Signin = () => {
                           {...field}
                           focusBorderColor= '#400050'
                           placeholder="Username"
-                          type="email"
+                          type="text"
                           variant="outline"
                           mb={2}
                         />

@@ -73,10 +73,10 @@ import {
                     spacing="1px"
                   >
                     <Text fontWeight={600} fontSize="0.9em">
-                    {user?.firstname ? user : "John"} {user?.lastname ? user : "Udoumoh"} 
+                    {user ? user[0] : "John"} {user ? user[1] : "Udoumoh"} 
                     </Text>
                   </VStack>
-                  <Avatar name={user?.firstname} src={ data?.profileImg ? data : "https://i.imgur.com/mJqC8j2.jpg" } size="md" ml={1} mr={1} borderRadius="10px" />
+                  <Avatar name={user[0]} src={ data ? data[0] : "https://i.imgur.com/mJqC8j2.jpg" } size="md" ml={1} mr={1} borderRadius="10px" />
                 </HStack>
               </MenuButton>
               <MenuList

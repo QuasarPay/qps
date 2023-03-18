@@ -72,7 +72,7 @@ const RightBar = () => {
         </Text>
         <Flex direction="column" mt={2}>
             <Text fontSize={12}>Card Holder
-                <Text fontSize={16} fontWeight={500}>{user?.firstname ? user : "John"} {user?.lastname ? user : "Udoumoh"}</Text>
+                <Text fontSize={16} fontWeight={500}>{user ? user[0] : "John"} {user ? user[1] : "Udoumoh"}</Text>
             </Text>
         </Flex>
 
