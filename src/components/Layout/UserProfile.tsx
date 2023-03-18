@@ -1,10 +1,9 @@
 import {
     IconButton,
     Avatar,
-    Box,
     Flex,
     HStack,
-    Heading,
+    Image,
     Text,
     Menu,
     MenuButton,
@@ -12,26 +11,12 @@ import {
     MenuItem,
     MenuList,
     MenuGroup,
-    Badge,
     VStack,
-    AvatarBadge,
-    Button,
-    useDisclosure,
-    useColorModeValue,
   } from "@chakra-ui/react";
   
   import NextLink from "next/link";
   import {
-    IoChatbubbleEllipses,
-    IoChatbubbleEllipsesOutline,
     IoNotificationsOutline,
-    IoNotifications,
-    IoCompassOutline,
-    IoCompass,
-    IoApps,
-    IoCaretDown,
-    IoFlashOutline,
-    IoFlash,
   } from "react-icons/io5";
   import { CgProfile } from "react-icons/cg";
   import { FiSettings, FiBookmark, FiLogOut } from "react-icons/fi";
@@ -49,6 +34,15 @@ import {
     // })
   
     return (
+      <Flex align="center" gap={5}>
+         <Image
+              src={`https://catamphetamine.gitlab.io/country-flag-icons/3x2/NG.svg`}
+              borderRadius="md"
+              alt={`NG-flag`}
+              h="6"
+              pointerEvents="none"
+            />
+            <IconButton icon={<IoNotificationsOutline  />} fontSize="24px" variant="ghost"  aria-label="Notifications" />
           <Flex
             _hover={{ bg: "#E6E6E6", color: "#000a16" }}
             borderRadius="10px"
@@ -113,5 +107,6 @@ import {
               </MenuList>
             </Menu>
           </Flex>
+      </Flex>
     );
   }

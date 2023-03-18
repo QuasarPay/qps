@@ -125,20 +125,18 @@ const Signup = () => {
                 // })
 
                 // delete this also in prod.
-                toast({
-                        title: 'Account created.',
-                        description: 'Your account has been created successfully',
-                        status: 'success',
-                        variant: 'left-accent',
-                        position: 'top-right',
-                        duration: 5000,
-                        isClosable: true,
-                      });     
-                setTimeout(() => {
+                // toast({
+                //         title: 'Account created.',
+                //         description: 'Your account has been created successfully',
+                //         status: 'success',
+                //         variant: 'left-accent',
+                //         position: 'top-right',
+                //         duration: 5000,
+                //         isClosable: true,
+                //       });     
                   actions.setSubmitting(false);
-                }, 1000);
+                  router.push("/onboarding");
                 
-                router.push("/app");
               }}
             >
               {(props) => (
