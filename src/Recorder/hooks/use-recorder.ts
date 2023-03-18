@@ -72,18 +72,37 @@ export default function useRecorder() {
         chunks.push(e.data);
       };
 
-      recorder.onstop = () => {
+      recorder.onstop = async () => {
         const blob = new Blob(chunks, { type: "audio/ogg; codecs=opus" });
         chunks = [];
-
-        setRecorderState((prevState: Recorder) => {
-          if (prevState.mediaRecorder)
-            return {
-              ...initialState,
-              audio: window.URL.createObjectURL(blob),
-            };
-          else return initialState;
-        });
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = async () => {
+          const base64data = reader.result?.toString().split(",")[1];
+          console.log("data: ", base64data)
+          try {
+            // Edit the endpoint here...
+            const response = await fetch("your-endpoint", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ audio: base64data }),
+            });
+            if (!response.ok) throw new Error("Failed to upload audio");
+            console.log("Audio uploaded successfully");
+          } catch (error) {
+            console.error(error);
+          }
+          setRecorderState((prevState: Recorder) => {
+            if (prevState.mediaRecorder)
+              return {
+                ...initialState,
+                audio: URL.createObjectURL(blob),
+              };
+            else return initialState;
+          });
+        };
       };
     }
 
