@@ -26,7 +26,7 @@ const Signin = () => {
   function validateEmail(value: string) {
     let error;
     if (!value) {
-      error = "Email is required";
+      error = "Username is required";
     }
     return error;
   }
@@ -102,11 +102,11 @@ const Signin = () => {
                       <FormControl
                         isInvalid={form.errors.name && form.touched.name}
                       >
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel>Username</FormLabel>
                         <Input
                           {...field}
                           focusBorderColor= '#400050'
-                          placeholder="example@gmail.com"
+                          placeholder="Username"
                           type="email"
                           variant="outline"
                           mb={2}

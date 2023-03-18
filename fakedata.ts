@@ -282,3 +282,223 @@ export const country = [
         trendValue: "+1.12%",
       },
   ];
+
+
+  type AvatarData = {
+    id: number;
+    name: string;
+    imageUrl: string;
+    border?: string;
+  };
+  
+  export const initialData: AvatarData[] = [
+    {
+      id: 1,
+      name: "John Doe",
+      imageUrl: "https://i.pravatar.cc/70?img=1",
+      border: "red",
+    },
+    {
+      id: 2,
+      name: "Jane Doe",
+      imageUrl: "https://i.pravatar.cc/70?img=2",
+      border: "#400050",
+    },
+    {
+      id: 3,
+      name: "Jack Smith",
+      imageUrl: "https://i.pravatar.cc/70?img=3",
+      border: "#400050",
+    },
+    {
+      id: 4,
+      name: "Jill Smith",
+      imageUrl: "https://i.pravatar.cc/70?img=4",
+      border: "green",
+    },
+    {
+      id: 5,
+      name: "James Brown",
+      imageUrl: "https://i.pravatar.cc/70?img=5",
+      border: "#400050",
+    },
+    {
+      id: 6,
+      name: "Jessica Brown",
+      imageUrl: "https://i.pravatar.cc/70?img=6",
+      border: "#400050",
+    },
+  ];
+
+  type GroupData = {
+    id: number;
+    name: string;
+    imageUrl: string;
+    deposit: string;
+    depositType: "increase" | "decrease" | undefined;
+    depositStat: string;
+    received: string;
+    receiveType: "increase" | "decrease" | undefined;
+    receiveStat: string
+
+  }
+  export const groups: GroupData[] = [
+    {
+      id: 1,
+      name: "Uchiha Investment",
+      imageUrl: "https://assets.myket.ir/icons/large/d0e601f5-64d5-4346-b0a7-c76e4f051162.png",
+      deposit: "3,500",
+      received: "500",
+      depositType: "increase",
+      receiveType: "decrease",
+      depositStat: "3.30%",
+      receiveStat: "49.55%"
+    },
+    {
+      id: 2,
+      name: "C307 Roommates",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVC0obXDEqzqI55aulb2jmlvNvaqN2XPcEdQ&usqp=CAU",
+      deposit: "25,150",
+      received: "12,550",
+      depositType: "decrease",
+      receiveType: "decrease",
+      depositStat: "2.49%",
+      receiveStat: "2.47%"
+    },
+    {
+      id: 3,
+      name: "Joseph's Crowd Sourcing",
+      imageUrl: "https://i.pravatar.cc/70?img=55",
+      deposit: "5,750,000",
+      received: "745,625",
+      depositType: "increase",
+      receiveType: "increase",
+      depositStat: "6.60%",
+      receiveStat: "10.05%"
+    },
+    {
+      id: 4,
+      name: "Kek Supreme",
+      imageUrl: "https://i.pinimg.com/474x/99/a7/5d/99a75dc18969c7c76aaf0d74d21458bb.jpg",
+      deposit: "345,600",
+      received: "45,420",
+      depositType: "increase",
+      receiveType: "decrease",
+      depositStat: "23.36%",
+      receiveStat: "9.05%"
+    },
+  ];
+
+  export const invites = [
+    {
+      id: 1,
+      name: "Camelo Candy",
+      imageUrl: "https://i.pravatar.cc/70?img=9",
+    },
+    {
+      id: 2,
+      name: "Charles Harper",
+      imageUrl: "https://i.pravatar.cc/70?img=58",
+    },
+    {
+      id: 3,
+      name: "Jack Barker",
+      imageUrl: "https://i.pravatar.cc/70?img=69",
+    },
+    {
+      id: 4,
+      name: "Richard Hendricks",
+      imageUrl: "https://i.pravatar.cc/70?img=64",
+    },
+    {
+      id: 5,
+      name: "Miles Spector",
+      imageUrl: "https://i.pravatar.cc/70?img=50",
+    },
+    {
+      id: 6,
+      name: "Tobiloba Adesayo",
+      imageUrl: "https://i.pravatar.cc/70?img=38",
+    },
+  ];
+
+  export const approvedLoans = [
+    {
+      id: 1,
+      name: "Erica Thompson",
+      imageUrl: "https://i.pravatar.cc/70?img=19",
+      time: "30 mins ago",
+      amount: "30,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 2,
+      name: "Allen Harper",
+      imageUrl: "https://i.pravatar.cc/70?img=59",
+      time: "12 hrs ago",
+      amount: "45,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 3,
+      name: "Gavin Belson",
+      imageUrl: "https://i.pravatar.cc/70?img=70",
+      time: "2 days ago",
+      amount: "260,000",
+      tag: "Quick Loan"
+    },
+  ];
+
+  export const requestsLoans = [
+    {
+      id: 1,
+      name: "Jemima Udoumoh",
+      imageUrl: "https://img.freepik.com/free-photo/sideways-shot-adorable-young-female-with-dark-skin-looks-seriously-confidently-shows-her-natural-beauty-poses-fashion-magazine-wears-round-glasses-casual-t-shirt_273609-15638.jpg?w=740",
+      time: "30 mins ago",
+      amount: "130,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 2,
+      name: "Ibrahim Ali",
+      imageUrl: "https://i.pravatar.cc/70?img=59",
+      time: "4 days ago",
+      amount: "45,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 3,
+      name: "Eric Bachmann",
+      imageUrl: "https://i.pravatar.cc/70?img=52",
+      time: "11 days ago",
+      amount: "20,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 4,
+      name: "Sarah Bucks",
+      imageUrl: "https://i.pravatar.cc/70?img=45",
+      time: "2 weeks ago",
+      amount: "12,000",
+      tag: "Quick Loan"
+    },
+  ];
+
+  export const sentLoans = [
+    {
+      id: 1,
+      name: "Adekunle Ajayi",
+      imageUrl: "https://img.freepik.com/free-photo/portrait-good-looking-man-smiling_23-2148780106.jpg?w=360",
+      time: "46 mins ago",
+      amount: "1,500",
+      tag: "MTN Data Plan"
+    },
+    {
+      id: 2,
+      name: "Quasar Payments",
+      imageUrl: "/qpsicon.png",
+      time: "4 days ago",
+      amount: "1,750,000",
+      tag: "Mid Term Loan"
+    },
+  ];
