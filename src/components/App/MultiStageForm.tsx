@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useState } from 'react';
 import {
     Text,
     Box,
+    HStack,
+    Image,
     ButtonGroup,
     Button,
     Heading,
@@ -22,8 +25,12 @@ import {
     SliderTrack,
     SliderFilledTrack,
     SliderThumb,
+    NumberInput,
+    NumberInputField,
+    useRadio,
+    useRadioGroup,
 } from '@chakra-ui/react';
-
+import { BsArrowLeft } from 'react-icons/bs'
 import { useToast } from '@chakra-ui/react';
 
 const Form1 = () => {
@@ -62,7 +69,7 @@ const Form1 = () => {
                     What is the amount you need?
                     </FormLabel>
                     <InputGroup>
-                        <InputLeftAddon children='NGN' />
+                        <InputLeftAddon children={'NGN'} />
                         <Input type='num' placeholder='Add amount' />
                     </InputGroup>
                 </FormControl>
@@ -97,141 +104,157 @@ const Form1 = () => {
                     <SliderThumb h={'12'} bg='#520067'/>
                 </Slider>
             </Box>
+
+            <Flex mt={'8'}>
+                <FormControl mr="5%">
+                    <FormLabel htmlFor="first-name" fontWeight={'400'}>
+                        How do you intend to repay loan?
+                    </FormLabel>
+                    <Select placeholder='Select a repayment type'>
+                        <option value='option1'>Option 1</option>
+                        <option value='option2'>Option 2</option>
+                        <option value='option3'>Option 3</option>
+                    </Select>
+                </FormControl>
+
+                <FormControl>
+                    <FormLabel htmlFor="last-name" fontWeight={'400'}>
+                       Indicative interest rate
+                    </FormLabel>
+                    <Box height={'40px'} bg={'#D9D9D9'} borderRadius={'5px'} lineHeight={'40px'} px={'3'} fontWeight={'bold'}>3.5 - 4.5%</Box>
+                </FormControl>
+            </Flex>
         </>
     );
 };
 
 const Form2 = () => {
+    const options = ['No', 'Yes']
+    const { getRootProps, getRadioProps } = useRadioGroup({
+        name: 'framework',
+        defaultValue: 'No',
+        onChange: console.log,
+    })
+
+    const group = getRootProps()
+
+    const RadioCard = (props) => {
+        const { getInputProps, getCheckboxProps } = useRadio(props)
+
+        const input = getInputProps()
+        const checkbox = getCheckboxProps()
+
+        return (
+            <Box as='label'>
+                <input {...input} />
+                <Box
+                    {...checkbox}
+                    cursor='pointer'
+                    borderWidth='1px'
+                    bg={'#D9D9D9'}
+                    _checked={{
+                        bg: '#400050',
+                        color: 'white',
+                    }}
+                    _focus={{
+                        boxShadow: 'outline',
+                    }}
+                    px={5}
+                    py={3}
+                    mx={-1}
+                    width={'100px'}
+                    textAlign={'center'}
+                >
+                    {props.children}
+                </Box>
+            </Box>
+        )
+    }
     return (
         <>
-            <Heading w="100%" textAlign={'center'} fontWeight="normal" mb="2%">
-                User Details
+            <Heading w="100%" textAlign={'start'} fontWeight="500" fontSize={'20'} mt={'2'}>
+                Tell us more about your business🙃
             </Heading>
-            <FormControl as={GridItem} colSpan={[6, 3]}>
-                <FormLabel
-                    htmlFor="country"
-                    fontSize="sm"
-                    fontWeight="md"
-                    color="gray.700"
-                    _dark={{
-                        color: 'gray.50',
-                    }}>
-                    Country / Region
-                </FormLabel>
-                <Select
-                    id="country"
-                    name="country"
-                    autoComplete="country"
-                    placeholder="Select option"
-                    focusBorderColor="brand.400"
-                    shadow="sm"
-                    size="sm"
-                    w="full"
-                    rounded="md">
-                    <option>United States</option>
-                    <option>Canada</option>
-                    <option>Mexico</option>
-                </Select>
-            </FormControl>
+            <Text mb={'4%'}>
+                You need &nbsp;
+                <span style={{ color: '#400050', fontWeight: 'bold' }}>1,500,000 NGN</span> &nbsp;
+                for your business
+            </Text>
 
-            <FormControl as={GridItem} colSpan={6}>
-                <FormLabel
-                    htmlFor="street_address"
-                    fontSize="sm"
-                    fontWeight="md"
-                    color="gray.700"
-                    _dark={{
-                        color: 'gray.50',
-                    }}
-                    mt="2%">
-                    Street address
-                </FormLabel>
-                <Input
-                    type="text"
-                    name="street_address"
-                    id="street_address"
-                    autoComplete="street-address"
-                    focusBorderColor="brand.400"
-                    shadow="sm"
-                    size="sm"
-                    w="full"
-                    rounded="md"
-                />
-            </FormControl>
+            <Flex mt={'6'}>
+                <FormControl mr="5%">
+                    <FormLabel htmlFor="first-name" fontWeight={'400'}>
+                        Nigerian Business Registration Number
+                    </FormLabel>
+                    <NumberInput defaultValue={12345678}>
+                        <NumberInputField />
+                    </NumberInput>
+                </FormControl>
 
-            <FormControl as={GridItem} colSpan={[6, 6, null, 2]}>
-                <FormLabel
-                    htmlFor="city"
-                    fontSize="sm"
-                    fontWeight="md"
-                    color="gray.700"
-                    _dark={{
-                        color: 'gray.50',
-                    }}
-                    mt="2%">
-                    City
-                </FormLabel>
-                <Input
-                    type="text"
-                    name="city"
-                    id="city"
-                    autoComplete="city"
-                    focusBorderColor="brand.400"
-                    shadow="sm"
-                    size="sm"
-                    w="full"
-                    rounded="md"
-                />
-            </FormControl>
+                <FormControl>
+                    <FormLabel htmlFor="last-name" fontWeight={'400'}>
+                        What is the name of your business?
+                    </FormLabel>
+                    <InputGroup>
+                        <Input type='text' placeholder='Cool Business Ltd' />
+                    </InputGroup>
+                </FormControl>
+            </Flex>
 
-            <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-                <FormLabel
-                    htmlFor="state"
-                    fontSize="sm"
-                    fontWeight="md"
-                    color="gray.700"
-                    _dark={{
-                        color: 'gray.50',
-                    }}
-                    mt="2%">
-                    State / Province
-                </FormLabel>
-                <Input
-                    type="text"
-                    name="state"
-                    id="state"
-                    autoComplete="state"
-                    focusBorderColor="brand.400"
-                    shadow="sm"
-                    size="sm"
-                    w="full"
-                    rounded="md"
-                />
-            </FormControl>
+            <Flex mt={'6'}>
+                <FormControl mr="5%">
+                    <FormLabel htmlFor="first-name" fontWeight={'400'}>
+                        When was your business established?
+                    </FormLabel>
+                    <InputGroup>
+                        <Input type='datetime-local' placeholder='12345678' />
+                    </InputGroup>
+                </FormControl>
 
-            <FormControl as={GridItem} colSpan={[6, 3, null, 2]}>
-                <FormLabel
-                    htmlFor="postal_code"
-                    fontSize="sm"
-                    fontWeight="md"
-                    color="gray.700"
-                    _dark={{
-                        color: 'gray.50',
-                    }}
-                    mt="2%">
-                    ZIP / Postal
+                <FormControl>
+                    <FormLabel htmlFor="last-name" fontWeight={'400'}>
+                        Where is your business located?
+                    </FormLabel>
+                    <InputGroup>
+                        <Input type='text' placeholder='Somewhere on planet earth' />
+                    </InputGroup>
+                </FormControl>
+            </Flex>
+
+            <Flex mt={'6'}>
+                <FormControl mr="5%">
+                    <FormLabel htmlFor="last-name" fontWeight={'400'}>
+                        Is your business still alive?
+                    </FormLabel>
+                    <Input type='text' placeholder='e get as e be' />
+                </FormControl>
+
+                <FormControl>
+                    <FormLabel htmlFor="first-name" fontWeight={'400'}>
+                        What industry sector is your business?
+                    </FormLabel>
+                    <Select placeholder='Select sector'>
+                        <option value='option1'>Option 1</option>
+                        <option value='option2'>Option 2</option>
+                        <option value='option3'>Option 3</option>
+                    </Select>
+                </FormControl>
+            </Flex>
+
+            <FormControl mt={'6'}>
+                <FormLabel htmlFor="first-name" fontWeight={'400'}>
+                    Does your business own a property?
                 </FormLabel>
-                <Input
-                    type="text"
-                    name="postal_code"
-                    id="postal_code"
-                    autoComplete="postal-code"
-                    focusBorderColor="brand.400"
-                    shadow="sm"
-                    size="sm"
-                    w="full"
-                    rounded="md"
-                />
+            <HStack {...group} >
+                {options.map((value) => {
+                    const radio = getRadioProps({ value })
+                    return (
+                        <RadioCard key={value} {...radio} >
+                            {value}
+                        </RadioCard>
+                    )
+                })}
+            </HStack>
             </FormControl>
         </>
     );
@@ -240,63 +263,56 @@ const Form2 = () => {
 const Form3 = () => {
     return (
         <>
-            <Heading w="100%" textAlign={'center'} fontWeight="normal">
-                Social Handles
+            <Heading w="100%" textAlign={'start'} fontWeight="500" fontSize={'20'} mt={'2'}>
+                We just need a little bit more information😏
             </Heading>
-            <SimpleGrid columns={1} spacing={6}>
-                <FormControl as={GridItem} colSpan={[3, 2]}>
-                    <FormLabel
-                        fontSize="sm"
-                        fontWeight="md"
-                        color="gray.700"
-                        _dark={{
-                            color: 'gray.50',
-                        }}>
-                        Website
+
+            <Text mb={'4%'}>
+                You wanted a personal loan of &nbsp;
+                <span style={{ color: '#400050', fontWeight: 'bold' }}>450,000 NGN</span> &nbsp;
+            </Text>
+
+            <Flex mt={'8'}>
+                <FormControl mr="5%">
+                    <FormLabel htmlFor="first-name" fontWeight={'400'}>
+                        What category can we place the loan in?
                     </FormLabel>
-                    <InputGroup size="sm">
-                        <InputLeftAddon
-                            bg="gray.50"
-                            _dark={{
-                                bg: 'gray.800',
-                            }}
-                            color="gray.500"
-                            rounded="md">
-                            http://
-                        </InputLeftAddon>
-                        <Input
-                            type="tel"
-                            placeholder="www.example.com"
-                            focusBorderColor="brand.400"
-                            rounded="md"
-                        />
-                    </InputGroup>
+                    <Select placeholder='Select a category'>
+                        <option value='option1'>Option 1</option>
+                        <option value='option2'>Option 2</option>
+                        <option value='option3'>Option 3</option>
+                    </Select>
                 </FormControl>
 
-                <FormControl id="email" mt={1}>
-                    <FormLabel
-                        fontSize="sm"
-                        fontWeight="md"
-                        color="gray.700"
-                        _dark={{
-                            color: 'gray.50',
-                        }}>
-                        About
+                <FormControl>
+                    <FormLabel htmlFor="last-name" fontWeight={'400'}>
+                        If you selected others please fill it out here
                     </FormLabel>
-                    <Textarea
-                        placeholder="you@example.com"
-                        rows={3}
-                        shadow="sm"
-                        focusBorderColor="brand.400"
-                        fontSize={{
-                            sm: 'sm',
-                        }}
-                    />
-                    <FormHelperText>
-                        Brief description for your profile. URLs are hyperlinked.
-                    </FormHelperText>
+                    <InputGroup>
+                        <Input type='text' placeholder='(Optional)' />
+                    </InputGroup>
                 </FormControl>
-            </SimpleGrid>
+            </Flex>
+            
+            <Flex mt={'24'}>
+                <FormControl mr="5%">
+                    <FormLabel htmlFor="first-name" fontWeight={'400'}>
+                        How do you intend to repay loan?
+                    </FormLabel>
+                    <Select placeholder='Select a repayment type'>
+                        <option value='option1'>Option 1</option>
+                        <option value='option2'>Option 2</option>
+                        <option value='option3'>Option 3</option>
+                    </Select>
+                </FormControl>
+
+                <FormControl>
+                    <FormLabel htmlFor="last-name" fontWeight={'400'}>
+                        Indicative interest rate
+                    </FormLabel>
+                    <Box height={'40px'} bg={'#D9D9D9'} borderRadius={'5px'} lineHeight={'40px'} px={'3'} fontWeight={'bold'}>3.5 - 4.5%</Box>
+                </FormControl>
+            </Flex>
         </>
     );
 };
@@ -312,42 +328,46 @@ export default function MultiStageForm() {
                 // p={6}
                 m="10px auto"
                 as="form">
+                    
+                <Box mb='4%'>
+                    <HStack justify={'space-between'}>
+                        <BsArrowLeft 
+                        color='#400050' 
+                        size={'20px'} 
+                        onClick={() => {setStep(step - 1)}}
+                        />
+                        <Image src='/logo.png' alt='logo' htmlHeight={'100px'} htmlWidth={'250px'}/>
+                        <Text></Text>
+                    </HStack>
+                </Box>
+
                 <Text size={'18'} fontWeight={'500'} color={'#979797'}>STEP {step} of 3</Text>
                 {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
                 <ButtonGroup mt="5%" w="100%">
-                    <Flex w="100%" justifyContent="space-between">
+                    <Flex w="100%" justifyContent="end">
                         <Flex>
                             <Button
-                                onClick={() => {
-                                    setStep(step - 1);
-                                }}
-                                isDisabled={step === 1}
-                                colorScheme="teal"
-                                variant="solid"
-                                w="7rem"
-                                mr="5%">
-                                Back
-                            </Button>
-                            <Button
-                                w="7rem"
-                                isDisabled={step === 3}
+                                w="14rem"
+                                bg='#400050'
+                                display={step === 3 ? 'none' : "" }
                                 onClick={() => {
                                     setStep(step + 1);
                                 }}
-                                colorScheme="teal"
-                                variant="outline">
-                                Next
+                                colorScheme="none"
+                                variant="solid">
+                                Continue
                             </Button>
                         </Flex>
                         {step === 3 ? (
                             <Button
-                                w="7rem"
-                                colorScheme="red"
+                                w="14rem"
+                                bg='#400050'
+                                colorScheme="none"
                                 variant="solid"
                                 onClick={() => {
                                     toast({
-                                        title: 'Account created.',
-                                        description: "We've created your account for you.",
+                                        title: 'Loan application successful',
+                                        description: "We'll get back to you with the status of your application",
                                         status: 'success',
                                         duration: 3000,
                                         isClosable: true,

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Flex, Box, Image } from '@chakra-ui/react'
 import {
     Modal,
     ModalOverlay,
@@ -10,7 +9,6 @@ import {
     ModalCloseButton,
 } from '@chakra-ui/react'
 import MultiStageForm from './MultiStageForm'
-import { BsArrowLeft } from 'react-icons/bs'
 
 interface ModalProps{
     isOpen: boolean;
@@ -23,24 +21,12 @@ const BorrowMoney: React.FC<ModalProps> = ({isOpen, onClose}) => {
           <Modal isOpen={isOpen} size={'xl'} onClose={onClose}>
               <ModalOverlay />
               <ModalContent maxW='56rem' maxH='46rem'>
-                  <ModalHeader>
-                    <Flex align={'center'}> 
-                        <BsArrowLeft color='#400050'/>
-                    <Box ml='24' w='60'>
-                    <Image src='/logo.png' alt='logo' />
-                    </Box>
-                    </Flex>
-                    </ModalHeader>
-                  <ModalCloseButton />
-                  <ModalBody>
+                  {/* <ModalCloseButton /> */}
+                  <ModalBody px={'8'}>
                     <MultiStageForm />
                   </ModalBody>
 
                   <ModalFooter>
-                      {/* <Button colorScheme='blue' mr={3} onClick={onClose}>
-                          Close
-                      </Button>
-                      <Button variant='ghost'>Secondary Action</Button> */}
                   </ModalFooter>
               </ModalContent>
           </Modal>
