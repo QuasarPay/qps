@@ -23,10 +23,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Active Pages [For Demo]
 - Login/Register (uses localStorage for now)
 - Landing Page (redesign soon*)
-- Dashboard
-- Loans Page (under construction)
-- Contacts & Social Banking Page(to be designed)
-- Transactions???
+- Dashboard ``` COMPLETED ```
+- Loans Page ``` MODALS PENDING ```
+- Contacts & Social Banking Page ``` COMPLETED ```
+- Transactions History???
+
+Recorder now encodes the recorded audio data
 
 
 ## Learn More About Next.js
