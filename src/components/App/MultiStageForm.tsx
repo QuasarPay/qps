@@ -69,16 +69,12 @@ const Form1 = () => {
                     What is the amount you need?
                     </FormLabel>
                     <InputGroup>
-                        <InputLeftAddon children={'NGN'} />
+                        <InputLeftAddon>NGN</InputLeftAddon>
                         <Input type='num' placeholder='Add amount' />
                     </InputGroup>
                 </FormControl>
             </Flex>
-            <Flex direction="column" mt={4}>
-                <Text color={'#000000'}>How long do you want to loan for?</Text>
-                <Text>(in months)</Text>
-            </Flex>
-
+            <Text mt={4} color={'#000000'}>How long do you want to loan for? <span>(in months)</span> </Text>          
             <Box pt={6} pb={2}>
                 <Slider max={72} min={1} aria-label='slider-ex-6' onChange={(val) => setSliderValue(val)}>
                     <SliderMark value={1} {...labelStyles}>
@@ -138,7 +134,7 @@ const Form2 = () => {
 
     const group = getRootProps()
 
-    const RadioCard = (props) => {
+    const RadioCard = (props: any) => {
         const { getInputProps, getCheckboxProps } = useRadio(props)
 
         const input = getInputProps()
@@ -369,6 +365,7 @@ export default function MultiStageForm() {
                                         title: 'Loan application successful',
                                         description: "We'll get back to you with the status of your application",
                                         status: 'success',
+                                        position: 'top-right',
                                         duration: 3000,
                                         isClosable: true,
                                     });
