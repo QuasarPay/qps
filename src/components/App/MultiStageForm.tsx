@@ -134,7 +134,7 @@ const Form2 = () => {
 
     const group = getRootProps()
 
-    const RadioCard = (props) => {
+    const RadioCard = (props: any) => {
         const { getInputProps, getCheckboxProps } = useRadio(props)
 
         const input = getInputProps()
