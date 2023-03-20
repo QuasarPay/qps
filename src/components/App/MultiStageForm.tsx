@@ -74,10 +74,10 @@ const Form1 = () => {
                     </InputGroup>
                 </FormControl>
             </Flex>
-
-            <Text mt={'4'} color={'#000000'}>How long do you want to loan for?<br></br>
-                <span>(in months)</span>
-            </Text>
+            <Flex direction="column" mt={4}>
+                <Text color={'#000000'}>How long do you want to loan for?</Text>
+                <Text>(in months)</Text>
+            </Flex>
 
             <Box pt={6} pb={2}>
                 <Slider max={72} min={1} aria-label='slider-ex-6' onChange={(val) => setSliderValue(val)}>
