@@ -18,7 +18,7 @@ const Audio = () => {
             />
           </Flex>
 
-          <Flex direction="column" textAlign="justify" align="start" mt="100px">
+          <Flex direction="column" textAlign="justify" align="start" mt="100px" pb={10} px={20} gap="64px">
             <Flex direction="column">
               <Heading fontSize="2rem" textStyle="text" color="#400050">
                 Introducing an Audio-Based Payment System with Multilingual
@@ -35,7 +35,7 @@ const Audio = () => {
               </Text>
             </Flex>
 
-            <Flex direction="column" mt="64px">
+            <Flex direction="column">
               <Heading fontSize="2rem" textStyle="text" color="#400050">
                 Fault Tolerance and Fraud Classification for Secure Transactions
               </Heading>
@@ -50,7 +50,7 @@ const Audio = () => {
               </Text>
             </Flex>
 
-            <Flex direction="column" mt="64px">
+            <Flex direction="column">
               <Heading fontSize="2rem" textStyle="text" color="#400050">
                 Access Technology Easily and Make Payments Hassle-Free
               </Heading>
