@@ -684,7 +684,7 @@ const LeftBar = () => {
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Audio Transaction</ModalHeader>
+          <ModalHeader>Audio Chat Assistant</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Flex direction="column" align="center">

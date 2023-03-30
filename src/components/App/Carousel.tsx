@@ -6,6 +6,7 @@ import { initialData } from "../../../fakedata";
 const Carousel = () => {
   const [data, setData] = useState(initialData);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const MAX_LENGTH = 6;
 
   const handlePrev = () => {
     const newIndex = (currentIndex - 1 + data.length) % data.length;
@@ -17,10 +18,10 @@ const Carousel = () => {
     setCurrentIndex(newIndex);
   };
 
-  const visibleData = data.slice(currentIndex, currentIndex + 5);
-  const disablePrev = visibleData.length === 5 && currentIndex === 0;
+  const visibleData = data.slice(currentIndex, currentIndex + MAX_LENGTH);
+  const disablePrev = visibleData.length === MAX_LENGTH && currentIndex === 0;
   const disableNext =
-    visibleData.length === 5 &&
+    visibleData.length === MAX_LENGTH &&
     currentIndex + visibleData.length === data.length;
 
   return (
@@ -34,7 +35,7 @@ const Carousel = () => {
       py={2}
       px={4}
     >
-      <HStack spacing={8}>
+      <HStack spacing={6}>
         <IconButton
           aria-label="Previous"
           variant="link"
@@ -53,8 +54,8 @@ const Carousel = () => {
               border={"3px solid " + avatar.border || "#400050"}
             />
             <Text
-              fontSize={18}
-              fontWeight={500}
+              fontSize={15}
+              fontWeight={400}
               noOfLines={1}
               overflow="hidden"
               textOverflow="ellipsis"

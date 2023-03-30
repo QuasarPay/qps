@@ -40,7 +40,7 @@ const RightBar = () => {
                 Balance
             </Text>
             <Text fontSize={30} fontWeight="600">
-                &#8358;354,500
+                &#8358;2,545,000
             </Text>
             <Text fontSize={18} fontWeight="500">
                 4839 9403 2783 4592

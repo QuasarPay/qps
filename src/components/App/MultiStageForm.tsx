@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import React, { useState } from "react";
+import React, { ReactChild, ReactChildren, ReactNode, useState } from "react";
 import {
   Text,
   Box,
@@ -30,6 +30,7 @@ import {
   useRadio,
   useRadioGroup,
   IconButton,
+  UseRadioProps,
 } from "@chakra-ui/react";
 import { BsArrowLeft } from "react-icons/bs";
 import { useToast } from "@chakra-ui/react";
@@ -67,10 +68,10 @@ const Form1 = () => {
           <FormLabel htmlFor="first-name" fontWeight={"400"}>
             What is the purpose of the loan?
           </FormLabel>
-          <Select placeholder="Select a purpose">
-            <option value="option1">Option 1</option>
-            <option value="option2">Option 2</option>
-            <option value="option3">Option 3</option>
+          <Select placeholder="Select a purpose" focusBorderColor="#400050">
+            <option value="option1">Personal Loan</option>
+            <option value="option2">Business Loan</option>
+            <option value="option3">Others</option>
           </Select>
         </FormControl>
 
@@ -80,7 +81,7 @@ const Form1 = () => {
           </FormLabel>
           <InputGroup>
             <InputLeftAddon>NGN</InputLeftAddon>
-            <Input type="number" placeholder="Add amount" />
+            <Input type="number" placeholder="Add amount" focusBorderColor="#400050" />
           </InputGroup>
         </FormControl>
       </Flex>
@@ -124,7 +125,7 @@ const Form1 = () => {
           <FormLabel htmlFor="first-name" fontWeight={"400"}>
             How do you intend to repay loan?
           </FormLabel>
-          <Select placeholder="Select a repayment type">
+          <Select placeholder="Select a repayment type" focusBorderColor="#400050">
             <option value="option1">Option 1</option>
             <option value="option2">Option 2</option>
             <option value="option3">Option 3</option>
@@ -217,8 +218,8 @@ const Form2 = () => {
           <FormLabel htmlFor="first-name" fontWeight={"400"}>
             Nigerian Business Registration Number
           </FormLabel>
-          <NumberInput defaultValue={12345678}>
-            <NumberInputField />
+          <NumberInput>
+            <NumberInputField placeholder="12345678" />
           </NumberInput>
         </FormControl>
 
@@ -238,7 +239,7 @@ const Form2 = () => {
             When was your business established?
           </FormLabel>
           <InputGroup>
-            <Input type="datetime-local" placeholder="12345678" />
+            <Input type="date" placeholder="12345678" />
           </InputGroup>
         </FormControl>
 
@@ -431,6 +432,7 @@ export default function MultiStageForm() {
                     description:
                       "We'll get back to you with the status of your application",
                     status: "success",
+                    variant: "left-accent",
                     position: "top-right",
                     duration: 3000,
                     isClosable: true,

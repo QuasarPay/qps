@@ -283,53 +283,6 @@ export const country = [
       },
   ];
 
-
-  type AvatarData = {
-    id: number;
-    name: string;
-    imageUrl: string;
-    border?: string;
-  };
-  
-  export const initialData: AvatarData[] = [
-    {
-      id: 1,
-      name: "John Doe",
-      imageUrl: "https://i.pravatar.cc/70?img=1",
-      border: "red",
-    },
-    {
-      id: 2,
-      name: "Jane Doe",
-      imageUrl: "https://i.pravatar.cc/70?img=2",
-      border: "#400050",
-    },
-    {
-      id: 3,
-      name: "Jack Smith",
-      imageUrl: "https://i.pravatar.cc/70?img=3",
-      border: "#400050",
-    },
-    {
-      id: 4,
-      name: "Jill Smith",
-      imageUrl: "https://i.pravatar.cc/70?img=4",
-      border: "green",
-    },
-    {
-      id: 5,
-      name: "James Brown",
-      imageUrl: "https://i.pravatar.cc/70?img=5",
-      border: "#400050",
-    },
-    {
-      id: 6,
-      name: "Jessica Brown",
-      imageUrl: "https://i.pravatar.cc/70?img=6",
-      border: "#400050",
-    },
-  ];
-
   type GroupData = {
     id: number;
     name: string;
@@ -352,7 +305,7 @@ export const country = [
       depositType: "increase",
       receiveType: "decrease",
       depositStat: "3.30%",
-      receiveStat: "49.55%"
+      receiveStat: "4.55%"
     },
     {
       id: 2,
@@ -367,10 +320,10 @@ export const country = [
     },
     {
       id: 3,
-      name: "Joseph's Crowd Sourcing",
+      name: "Joseph Seed Violin Lessons",
       imageUrl: "https://i.pravatar.cc/70?img=55",
-      deposit: "5,750,000",
-      received: "745,625",
+      deposit: "5,750",
+      received: "1,300",
       depositType: "increase",
       receiveType: "increase",
       depositStat: "6.60%",
@@ -378,14 +331,68 @@ export const country = [
     },
     {
       id: 4,
-      name: "Kek Supreme",
-      imageUrl: "https://i.pinimg.com/474x/99/a7/5d/99a75dc18969c7c76aaf0d74d21458bb.jpg",
-      deposit: "345,600",
-      received: "45,420",
+      name: "Donate NGO",
+      imageUrl: "https://img.freepik.com/premium-vector/n-g-o-logo-design-charity_652297-1010.jpg?w=2000",
+      deposit: "34,600",
+      received: "3,0  00",
       depositType: "increase",
       receiveType: "decrease",
       depositStat: "23.36%",
       receiveStat: "9.05%"
+    },
+    {
+      id: 5,
+      name: "CODM Wallet",
+      imageUrl: "https://i.pinimg.com/originals/42/fe/37/42fe37e7428573b1cdf2824a500c580b.jpg",
+      deposit: "10,750",
+      received: "3,500",
+      depositType: "increase",
+      receiveType: "decrease",
+      depositStat: "23.36%",
+      receiveStat: "9.05%"
+    },
+  ];
+
+  type SubsData = {
+    id: number;
+    name: string;
+    imageUrl: string;
+    deposit: string;
+    depositType: "increase" | "decrease" | undefined;
+    depositStat: string;
+  }
+  export const subscriptions: SubsData[] = [
+    {
+      id: 1,
+      name: "Netflix",
+      imageUrl: "https://s3-alpha.figma.com/hub/file/2748081035/1ddb18ac-1a21-4703-bc54-4c4c71aafc2e-cover.png",
+      deposit: "4,600",
+      depositType: "increase",
+      depositStat: "0.51%",
+    },
+    {
+      id: 2,
+      name: "Spotify Premium",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/2048px-Spotify_App_Logo.svg.png",
+      deposit: "900",
+      depositType: "decrease",
+      depositStat: "1.20%",
+    },
+    {
+      id: 3,
+      name: "OpenAI ChatGPT Plus",
+      imageUrl: "https://mrvian.com/wp-content/uploads/2023/02/logo-open-ai.png",
+      deposit: "9,200",
+      depositType: "increase",
+      depositStat: "0.60%",
+    },
+    {
+      id: 4,
+      name: "DSTV Compact Package",
+      imageUrl: "https://www.dstv.com/media/kt2lleca/dstv_website_preview_thumbnail.png?anchor=center&mode=crop&width=1200&height=630&rnd=132883618110400000",
+      deposit: "9,000",
+      depositType: "increase",
+      depositStat: "0.02%",
     },
   ];
 
@@ -433,8 +440,8 @@ export const country = [
     },
     {
       id: 2,
-      name: "Allen Harper",
-      imageUrl: "https://i.pravatar.cc/70?img=59",
+      name: "Leonard Cooper",
+      imageUrl: "https://i.pravatar.cc/70?img=6",
       time: "12 hrs ago",
       amount: "45,000",
       tag: "Quick Loan"
@@ -442,7 +449,7 @@ export const country = [
     {
       id: 3,
       name: "Gavin Belson",
-      imageUrl: "https://i.pravatar.cc/70?img=70",
+      imageUrl: "https://i.pravatar.cc/70?img=14",
       time: "2 days ago",
       amount: "260,000",
       tag: "Quick Loan"
@@ -481,6 +488,71 @@ export const country = [
       time: "2 weeks ago",
       amount: "12,000",
       tag: "Quick Loan"
+    },
+  ];
+
+  
+  type AvatarData = {
+    id: number;
+    name: string;
+    imageUrl: string;
+    border?: string;
+  };
+  
+  export const initialData: AvatarData[] = [
+    {
+      id: 1,
+      name: "ibrahim.ali",
+      imageUrl: "https://i.pravatar.cc/70?img=59",
+      border: "red",
+    },
+    {
+      id: 2,
+      name: "mr.bachmann",
+      imageUrl: "https://i.pravatar.cc/70?img=52",
+      border: "#400050",
+    },
+    {
+      id: 3,
+      name: "s_bucks",
+      imageUrl: "https://i.pravatar.cc/70?img=45",
+      border: "#400050",
+    },
+    {
+      id: 4,
+      name: "jemma123",
+      imageUrl: "https://img.freepik.com/free-photo/sideways-shot-adorable-young-female-with-dark-skin-looks-seriously-confidently-shows-her-natural-beauty-poses-fashion-magazine-wears-round-glasses-casual-t-shirt_273609-15638.jpg?w=740",
+      border: "green",
+    },
+    {
+      id: 5,
+      name: "gavinb__",
+      imageUrl: "https://i.pravatar.cc/70?img=14",
+      border: "#400050",
+    },
+    {
+      id: 6,
+      name: "dr.lcooper",
+      imageUrl: "https://i.pravatar.cc/70?img=6",
+      border: "#400050",
+    },
+    {
+      id: 7,
+      name: "erica_spending",
+      imageUrl: "https://i.pravatar.cc/70?img=19",
+      border: "red",
+    },
+    {
+      id: 8,
+      name: "kunle_fx",
+      imageUrl: "https://img.freepik.com/free-photo/portrait-good-looking-man-smiling_23-2148780106.jpg?w=360",
+      border: "green",
+    },
+    {
+      id: 9,
+      name: "ch1n3du",
+      imageUrl: "https://i.pravatar.cc/70?img=11",
+      border: "#400050",
     },
   ];
 

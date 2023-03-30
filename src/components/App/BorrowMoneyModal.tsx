@@ -20,7 +20,7 @@ const BorrowMoney: React.FC<ModalProps> = ({isOpen, onClose}) => {
    <>
           <Modal isOpen={isOpen} size={'xl'} onClose={onClose}>
               <ModalOverlay />
-              <ModalContent maxW='56rem' maxH='46rem' overflow="hidden">
+              <ModalContent maxW='56rem' maxH='46rem' overflow="hidden" mt={4}>
                   <ModalCloseButton />
                   <ModalBody px={'8'}>
                     <MultiStageForm />

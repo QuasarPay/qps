@@ -4,12 +4,6 @@ import {
   Button,
   Flex,
   Text,
-  Stat,
-  StatArrow,
-  StatGroup,
-  StatHelpText,
-  StatLabel,
-  StatNumber,
   Tab,
   TabList,
   TabPanel,
@@ -17,6 +11,7 @@ import {
   Tabs,
   Tag,
   Badge,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Container from "../../src/components/Layout/Container";
 import Report from "../../src/components/Loans/Report";
