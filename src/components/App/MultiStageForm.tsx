@@ -391,8 +391,8 @@ export default function MultiStageForm() {
                 isDisabled={step <= 1}
             />
             <Image
-              src="/logo.png"
-              alt="logo"
+              src="/qpsfull.svg"
+              alt="qps_logo_full"
               htmlHeight={"100px"}
               htmlWidth={"250px"}
             />
