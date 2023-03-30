@@ -8,18 +8,22 @@ import {
   Tab,
   TabPanel,
   Avatar,
-  Stat,
+  Badge,
+  Box,
   StatLabel,
   StatNumber,
   StatHelpText,
   StatArrow,
   StatGroup,
   Button,
+  Icon,
+  IconButton,
 } from "@chakra-ui/react";
 import Container from "../../src/components/Layout/Container";
 import Carousel from "../../src/components/App/Carousel";
 import NetworkAction from "../../src/components/App/NetworkAction";
-import { groups, invites } from "../../fakedata";
+import { groups, invites, subscriptions } from "../../fakedata";
+import { IoCaretDown, IoCaretUp, IoEllipsisVertical } from "react-icons/io5";
 
 const MyNetwork = () => {
   return (
@@ -31,13 +35,13 @@ const MyNetwork = () => {
           <Tabs isFitted colorScheme="purple" w="full">
             <TabList>
               <Tab fontWeight={600}>Contributions</Tab>
+              <Tab fontWeight={600}>Subscriptions</Tab>
               <Tab fontWeight={600}>Invitations</Tab>
               <Tab fontWeight={600}>Notifications</Tab>
             </TabList>
-
             <TabPanels>
-              <TabPanel>
-                <Flex direction="column" px={4} py={2}>
+              <TabPanel h="40vh" overflowY="auto">
+                <Flex direction="column" px={4} py={2} gap={4}>
                   {groups.map((res) => (
                     <Flex
                       gap={2}
@@ -59,36 +63,65 @@ const MyNetwork = () => {
                           {res.name}
                         </Text>
                       </Flex>
-                      <Flex>
-                        <StatGroup gap={4}>
-                          <Stat>
-                            <StatLabel>Deposited</StatLabel>
-                            <StatNumber fontSize={20}>
-                              &#8358;{res.deposit}
-                            </StatNumber>
-                            <StatHelpText>
-                              <StatArrow type={res.depositType} />
-                              {res.depositStat}
-                            </StatHelpText>
-                          </Stat>
-
-                          <Stat>
-                            <StatLabel>Received</StatLabel>
-                            <StatNumber fontSize={20}>
-                              &#8358;{res.received}
-                            </StatNumber>
-                            <StatHelpText>
-                              <StatArrow type={res.receiveType} />
-                              {res.receiveStat}
-                            </StatHelpText>
-                          </Stat>
-                        </StatGroup>
+                      <Flex gap={2} align="center">
+                        <Flex h={10} px={1} py={1} direction="column" w="130px" bg="rgba(148, 125, 1, 0.9)" color="white" borderRadius="4px" justify="center">
+                          <Text fontSize={12}>Deposited</Text>
+                          <Flex align="center" gap={1}>
+                          <Text fontSize={14}>&#8358;{res.deposit}</Text>
+                          <Icon as={res.depositType === "increase" ? IoCaretUp : IoCaretDown} w="4" h="4" />
+                          <Text fontSize={11}>{res.depositStat}</Text>
+                          </Flex>
+                        </Flex>
+                        <Flex h={10} px={1} py={1} direction="column"  w="130px" bg="green" color="white" borderRadius="4px" justify="center">
+                        <Text fontSize={12}>Withdrawn</Text>
+                          <Flex align="center" gap={1}>
+                          <Text fontSize={14}>&#8358;{res.received}</Text>
+                          <Icon as={res.receiveType === "increase" ? IoCaretUp : IoCaretDown} w="4" h="4" />
+                          <Text fontSize={11}>{res.receiveStat}</Text>
+                          </Flex>
+                        </Flex>
                       </Flex>
                     </Flex>
                   ))}
                 </Flex>
               </TabPanel>
-              <TabPanel>
+              <TabPanel h="40vh" overflowY="auto">
+              <Flex direction="column" px={4} py={2} gap={4}>
+                  {subscriptions.map((res) => (
+                    <Flex
+                      gap={2}
+                      align="center"
+                      px={2}
+                      key={res.id}
+                      borderRadius="10px"
+                      justify="space-between"
+                    >
+                      <Flex align="center" gap="2">
+                        <Avatar
+                          src={res.imageUrl}
+                          borderRadius="md"
+                          size="md"
+                        />
+                        <Text fontSize="18" fontWeight={500}>
+                          {res.name}
+                        </Text>
+                      </Flex>
+                      <Flex gap={2} align="center">
+                        <Flex h={10} px={1} py={1} direction="column" w="130px" bg="rgba(0, 32, 81, 0.9)" color="white" borderRadius="4px" justify="center">
+                          <Text fontSize={12}>Monthly Amount</Text>
+                          <Flex align="center" gap={1}>
+                          <Text fontSize={14}>&#8358;{res.deposit}</Text>
+                          <Icon as={res.depositType === "increase" ? IoCaretUp : IoCaretDown} w="4" h="4" />
+                          <Text fontSize={11}>{res.depositStat}</Text>
+                          </Flex>
+                        </Flex>
+                        <IconButton aria-label="actions" icon={<IoEllipsisVertical />} />
+                      </Flex>
+                    </Flex>
+                  ))}
+                </Flex>
+              </TabPanel>
+              <TabPanel h="40vh" overflowY="auto">
                 <Flex direction="column" gap={2} px={4} py={2}>
                   {invites.map((iv) => (
                     <Flex

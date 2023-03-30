@@ -1,8 +1,10 @@
 import React from "react";
-import { Box, Flex, Text, Icon, Progress, Badge } from "@chakra-ui/react";
+import EligibilityModal from "./EligibilityModal";
+import { Box, Flex, Text, Icon, Progress, Badge, useDisclosure } from "@chakra-ui/react";
 import { RxPlus, RxReset, RxCheck } from "react-icons/rx";
 
 const Report = () => {
+  const { isOpen: isCheckOpen, onOpen: onCheckOpen, onClose: onCheckClose } = useDisclosure();
   return (
     <Box bg="#fff" borderRadius="md" h="240px" w="760px" py={2} px="75px">
       <Flex direction="column">
@@ -92,6 +94,7 @@ const Report = () => {
             borderRadius="md"
             cursor="pointer"
             _hover={{ transform: "scale(1.03 )" }}
+            onClick={onCheckOpen}
           >
             <Flex
               bg="#1F4278"
@@ -106,6 +109,7 @@ const Report = () => {
             </Flex>
             <Text ml={2}> Check Eligibility </Text>
           </Flex>
+          <EligibilityModal isOpen={isCheckOpen} onClose={onCheckClose} />
         </Flex>
       </Flex>
     </Box>
