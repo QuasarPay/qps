@@ -101,7 +101,15 @@ const Signup = () => {
             <Formik
               initialValues={{ firstname: "", lastname: "", email: "", phoneNumber: "", password: "" }}
               onSubmit={(values, actions) => {
-                window.localStorage.setItem('user', JSON.stringify(values)); // remove this in prod
+                setTimeout(() => {
+                  window.localStorage.setItem(
+                    "user",
+                    JSON.stringify([values.firstname, values.lastname, values.email, values.phoneNumber])
+                  );
+                  actions.setSubmitting(false);
+                }, 1000);
+                router.push("/onboarding");
+              }}
                 
                 // POST REQUEST TO ENDPOINT
                 // axios({
@@ -122,24 +130,7 @@ const Signup = () => {
                 //       isClosable: true,
                 //     })                    
                 //   }
-                // })
-
-                // delete this also in prod.
-                toast({
-                        title: 'Account created.',
-                        description: 'Your account has been created successfully',
-                        status: 'success',
-                        variant: 'left-accent',
-                        position: 'top-right',
-                        duration: 5000,
-                        isClosable: true,
-                      });     
-                setTimeout(() => {
-                  actions.setSubmitting(false);
-                }, 1000);
-                
-                router.push("/app");
-              }}
+                // })  
             >
               {(props) => (
                 <Form>

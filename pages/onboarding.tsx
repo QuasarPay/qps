@@ -85,7 +85,7 @@ const Onboarding = () => {
                 setTimeout(() => {
                   window.localStorage.setItem(
                     "profile",
-                    JSON.stringify(values)
+                    JSON.stringify([values.profileImg, values.username, values.gender, values.phoneNumber, values.country])
                   );
                   actions.setSubmitting(false);
                 }, 1000);
@@ -189,8 +189,7 @@ const Onboarding = () => {
                             {country.map((p, i) => (
                                 <option value={p.code} key={i}>
                                   <Flex>
-                                    <Image src={`https://countryflagsapi/png/Nigeria`} alt={p.code} w="20px" h="20px" ml={1} />
-                                   wee - {p.name}
+                                    {p.name}
                                   </Flex>
                                 </option> 
                             ))}

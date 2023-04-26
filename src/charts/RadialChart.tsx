@@ -5,20 +5,20 @@ import { RadialBarChart, RadialBar, Legend } from "recharts";
 const data = [
   {
     name: "Daily",
-    uv: 11.47,
-    pv: 3400,
+    uv: 8.66,
+    pv: 2400,
     fill: "#8884d8"
   },
   {
-    name: "Monthly",
+    name: "Weekly",
     uv: 15.69,
-    pv: 4398,
+    pv: 1200,
     fill: "#8dd1e1"
   },
   {
-    name: "Yearly",
-    uv: 6.67,
-    pv: 4900,
+    name: "Monthly",
+    uv: 6.29,
+    pv: 600,
     fill: "#ffc658"
   }
 ];
@@ -26,24 +26,24 @@ const data = [
 const style = {
   lineHeight: "24px",
   left: 0,
-  marginTop: "-65px"
+  marginTop: "-55px"
 };
 
 
 
 export default function RadialChart() {
   return (
-    <Flex direction="column" w="350px" h="170px" bg="white" mt={4} borderRadius="md" px={4} py={2}>
-        <Text mb={2}>
+    <Flex direction="column" w="320px" h="165px" bg="white" mt={4} borderRadius="md" px={4} py={2}>
+        <Text mb={2} fontWeight={600}>
             Account Limits
         </Text>
         <RadialBarChart
-        width={500}
-        height={200}
+        width={450}
+        height={130}
         cx={220}
-        cy={60}
+        cy={50}
         innerRadius={15}
-        outerRadius={70}
+        outerRadius={60}
         barSize={8}
         data={data}
         >
@@ -54,7 +54,7 @@ export default function RadialChart() {
         <Legend
             iconSize={10}
             width={100}
-            height={40}
+            height={1}
             layout="vertical"
             verticalAlign="middle"
             wrapperStyle={style}

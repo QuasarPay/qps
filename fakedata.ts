@@ -243,3 +243,334 @@ export const country = [
     {name: 'Zambia', code: 'ZM'}, 
     {name: 'Zimbabwe', code: 'ZW'} 
   ]
+
+  export const currencyData = [
+      {
+        country: "US",
+        name: "USD",
+        value: "0.0022",
+        code: "NGN",
+        codeValue: "0.0023",
+        trend: "down",
+        trendValue: "-2.08%",
+      },
+      {
+        country: "GB",
+        name: "GBP",
+        value: "0.0018",
+        code: "NGN",
+        codeValue: "0.0015",
+        trend: "up",
+        trendValue: "+2.01%",
+      },
+      {
+        country: "CA",
+        name: "CAD",
+        value: "0.0030",
+        code: "NGN",
+        codeValue: "0.0032",
+        trend: "down",
+        trendValue: "-2.10%",
+      },
+      {
+        country: "EU",
+        name: "EUR",
+        value: "0.0020",
+        code: "NGN",
+        codeValue: "0.0018",
+        trend: "up",
+        trendValue: "+1.12%",
+      },
+  ];
+
+  type GroupData = {
+    id: number;
+    name: string;
+    imageUrl: string;
+    deposit: string;
+    depositType: "increase" | "decrease" | undefined;
+    depositStat: string;
+    received: string;
+    receiveType: "increase" | "decrease" | undefined;
+    receiveStat: string
+
+  }
+  export const groups: GroupData[] = [
+    {
+      id: 1,
+      name: "Uchiha Investment",
+      imageUrl: "https://assets.myket.ir/icons/large/d0e601f5-64d5-4346-b0a7-c76e4f051162.png",
+      deposit: "3,500",
+      received: "500",
+      depositType: "increase",
+      receiveType: "decrease",
+      depositStat: "3.30%",
+      receiveStat: "4.55%"
+    },
+    {
+      id: 2,
+      name: "C307 Roommates",
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVC0obXDEqzqI55aulb2jmlvNvaqN2XPcEdQ&usqp=CAU",
+      deposit: "25,150",
+      received: "12,550",
+      depositType: "decrease",
+      receiveType: "decrease",
+      depositStat: "2.49%",
+      receiveStat: "2.47%"
+    },
+    {
+      id: 3,
+      name: "Joseph Seed Violin Lessons",
+      imageUrl: "https://i.pravatar.cc/70?img=55",
+      deposit: "5,750",
+      received: "1,300",
+      depositType: "increase",
+      receiveType: "increase",
+      depositStat: "6.60%",
+      receiveStat: "10.05%"
+    },
+    {
+      id: 4,
+      name: "Donate NGO",
+      imageUrl: "https://img.freepik.com/premium-vector/n-g-o-logo-design-charity_652297-1010.jpg?w=2000",
+      deposit: "34,600",
+      received: "3,0  00",
+      depositType: "increase",
+      receiveType: "decrease",
+      depositStat: "23.36%",
+      receiveStat: "9.05%"
+    },
+    {
+      id: 5,
+      name: "CODM Wallet",
+      imageUrl: "https://i.pinimg.com/originals/42/fe/37/42fe37e7428573b1cdf2824a500c580b.jpg",
+      deposit: "10,750",
+      received: "3,500",
+      depositType: "increase",
+      receiveType: "decrease",
+      depositStat: "23.36%",
+      receiveStat: "9.05%"
+    },
+  ];
+
+  type SubsData = {
+    id: number;
+    name: string;
+    imageUrl: string;
+    deposit: string;
+    depositType: "increase" | "decrease" | undefined;
+    depositStat: string;
+  }
+  export const subscriptions: SubsData[] = [
+    {
+      id: 1,
+      name: "Netflix",
+      imageUrl: "https://s3-alpha.figma.com/hub/file/2748081035/1ddb18ac-1a21-4703-bc54-4c4c71aafc2e-cover.png",
+      deposit: "4,600",
+      depositType: "increase",
+      depositStat: "0.51%",
+    },
+    {
+      id: 2,
+      name: "Spotify Premium",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Spotify_App_Logo.svg/2048px-Spotify_App_Logo.svg.png",
+      deposit: "900",
+      depositType: "decrease",
+      depositStat: "1.20%",
+    },
+    {
+      id: 3,
+      name: "OpenAI ChatGPT Plus",
+      imageUrl: "https://mrvian.com/wp-content/uploads/2023/02/logo-open-ai.png",
+      deposit: "9,200",
+      depositType: "increase",
+      depositStat: "0.60%",
+    },
+    {
+      id: 4,
+      name: "DSTV Compact Package",
+      imageUrl: "https://www.dstv.com/media/kt2lleca/dstv_website_preview_thumbnail.png?anchor=center&mode=crop&width=1200&height=630&rnd=132883618110400000",
+      deposit: "9,000",
+      depositType: "increase",
+      depositStat: "0.02%",
+    },
+  ];
+
+  export const invites = [
+    {
+      id: 1,
+      name: "Camelo Candy",
+      imageUrl: "https://i.pravatar.cc/70?img=9",
+    },
+    {
+      id: 2,
+      name: "Charles Harper",
+      imageUrl: "https://i.pravatar.cc/70?img=58",
+    },
+    {
+      id: 3,
+      name: "Jack Barker",
+      imageUrl: "https://i.pravatar.cc/70?img=69",
+    },
+    {
+      id: 4,
+      name: "Richard Hendricks",
+      imageUrl: "https://i.pravatar.cc/70?img=64",
+    },
+    {
+      id: 5,
+      name: "Miles Spector",
+      imageUrl: "https://i.pravatar.cc/70?img=50",
+    },
+    {
+      id: 6,
+      name: "Tobiloba Adesayo",
+      imageUrl: "https://i.pravatar.cc/70?img=38",
+    },
+  ];
+
+  export const approvedLoans = [
+    {
+      id: 1,
+      name: "Erica Thompson",
+      imageUrl: "https://i.pravatar.cc/70?img=19",
+      time: "30 mins ago",
+      amount: "30,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 2,
+      name: "Leonard Cooper",
+      imageUrl: "https://i.pravatar.cc/70?img=6",
+      time: "12 hrs ago",
+      amount: "45,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 3,
+      name: "Gavin Belson",
+      imageUrl: "https://i.pravatar.cc/70?img=14",
+      time: "2 days ago",
+      amount: "260,000",
+      tag: "Quick Loan"
+    },
+  ];
+
+  export const requestsLoans = [
+    {
+      id: 1,
+      name: "Jemima Udoumoh",
+      imageUrl: "https://img.freepik.com/free-photo/sideways-shot-adorable-young-female-with-dark-skin-looks-seriously-confidently-shows-her-natural-beauty-poses-fashion-magazine-wears-round-glasses-casual-t-shirt_273609-15638.jpg?w=740",
+      time: "30 mins ago",
+      amount: "130,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 2,
+      name: "Ibrahim Ali",
+      imageUrl: "https://i.pravatar.cc/70?img=59",
+      time: "4 days ago",
+      amount: "45,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 3,
+      name: "Eric Bachmann",
+      imageUrl: "https://i.pravatar.cc/70?img=52",
+      time: "11 days ago",
+      amount: "20,000",
+      tag: "Quick Loan"
+    },
+    {
+      id: 4,
+      name: "Sarah Bucks",
+      imageUrl: "https://i.pravatar.cc/70?img=45",
+      time: "2 weeks ago",
+      amount: "12,000",
+      tag: "Quick Loan"
+    },
+  ];
+
+  
+  type AvatarData = {
+    id: number;
+    name: string;
+    imageUrl: string;
+    border?: string;
+  };
+  
+  export const initialData: AvatarData[] = [
+    {
+      id: 1,
+      name: "ibrahim.ali",
+      imageUrl: "https://i.pravatar.cc/70?img=59",
+      border: "red",
+    },
+    {
+      id: 2,
+      name: "mr.bachmann",
+      imageUrl: "https://i.pravatar.cc/70?img=52",
+      border: "#400050",
+    },
+    {
+      id: 3,
+      name: "s_bucks",
+      imageUrl: "https://i.pravatar.cc/70?img=45",
+      border: "#400050",
+    },
+    {
+      id: 4,
+      name: "jemma123",
+      imageUrl: "https://img.freepik.com/free-photo/sideways-shot-adorable-young-female-with-dark-skin-looks-seriously-confidently-shows-her-natural-beauty-poses-fashion-magazine-wears-round-glasses-casual-t-shirt_273609-15638.jpg?w=740",
+      border: "green",
+    },
+    {
+      id: 5,
+      name: "gavinb__",
+      imageUrl: "https://i.pravatar.cc/70?img=14",
+      border: "#400050",
+    },
+    {
+      id: 6,
+      name: "dr.lcooper",
+      imageUrl: "https://i.pravatar.cc/70?img=6",
+      border: "#400050",
+    },
+    {
+      id: 7,
+      name: "erica_spending",
+      imageUrl: "https://i.pravatar.cc/70?img=19",
+      border: "red",
+    },
+    {
+      id: 8,
+      name: "kunle_fx",
+      imageUrl: "https://img.freepik.com/free-photo/portrait-good-looking-man-smiling_23-2148780106.jpg?w=360",
+      border: "green",
+    },
+    {
+      id: 9,
+      name: "ch1n3du",
+      imageUrl: "https://i.pravatar.cc/70?img=11",
+      border: "#400050",
+    },
+  ];
+
+  export const sentLoans = [
+    {
+      id: 1,
+      name: "Adekunle Ajayi",
+      imageUrl: "https://img.freepik.com/free-photo/portrait-good-looking-man-smiling_23-2148780106.jpg?w=360",
+      time: "46 mins ago",
+      amount: "1,500",
+      tag: "MTN Data Plan"
+    },
+    {
+      id: 2,
+      name: "Quasar Payments",
+      imageUrl: "/qpsicon.png",
+      time: "4 days ago",
+      amount: "1,750,000",
+      tag: "Mid Term Loan"
+    },
+  ];

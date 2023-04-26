@@ -1,10 +1,9 @@
 import {
     IconButton,
     Avatar,
-    Box,
     Flex,
     HStack,
-    Heading,
+    Image,
     Text,
     Menu,
     MenuButton,
@@ -12,26 +11,12 @@ import {
     MenuItem,
     MenuList,
     MenuGroup,
-    Badge,
     VStack,
-    AvatarBadge,
-    Button,
-    useDisclosure,
-    useColorModeValue,
   } from "@chakra-ui/react";
   
   import NextLink from "next/link";
   import {
-    IoChatbubbleEllipses,
-    IoChatbubbleEllipsesOutline,
     IoNotificationsOutline,
-    IoNotifications,
-    IoCompassOutline,
-    IoCompass,
-    IoApps,
-    IoCaretDown,
-    IoFlashOutline,
-    IoFlash,
   } from "react-icons/io5";
   import { CgProfile } from "react-icons/cg";
   import { FiSettings, FiBookmark, FiLogOut } from "react-icons/fi";
@@ -44,11 +29,20 @@ import {
     const router = useRouter();
     const data = JSON.parse(window.localStorage.getItem('profile')!)
     const user = JSON.parse(window.localStorage.getItem('user')!)
-    const real = axios.get('http://127.0.0.1:5000/users').then((response: any) => {
-      return response
-    })
+    // const real = axios.get('http://127.0.0.1:5000/users').then((response: any) => {
+    //   return response
+    // })
   
     return (
+      <Flex align="center" gap={5}>
+         <Image
+              src={`https://catamphetamine.gitlab.io/country-flag-icons/3x2/NG.svg`}
+              borderRadius="md"
+              alt={`NG-flag`}
+              h="6"
+              pointerEvents="none"
+            />
+            <IconButton icon={<IoNotificationsOutline  />} fontSize="24px" variant="ghost"  aria-label="Notifications" />
           <Flex
             _hover={{ bg: "#E6E6E6", color: "#000a16" }}
             borderRadius="10px"
@@ -79,10 +73,10 @@ import {
                     spacing="1px"
                   >
                     <Text fontWeight={600} fontSize="0.9em">
-                    {user?.firstname} {user?.lastname} 
+                    {user ? user[0] : "John"} {user ? user[1] : "Udoumoh"} 
                     </Text>
                   </VStack>
-                  <Avatar name={user?.firstname} src={ data?.profileImg } size="md" ml={1} mr={1} borderRadius="10px" />
+                  <Avatar name={user[0]} src={ data ? data[0] : "https://i.imgur.com/mJqC8j2.jpg" } size="md" ml={1} mr={1} borderRadius="10px" />
                 </HStack>
               </MenuButton>
               <MenuList
@@ -96,9 +90,6 @@ import {
                 <MenuGroup title="My Account">
                   <NextLink href="#"  passHref>
                     <MenuItem icon={<CgProfile />}
-                      onClick={() => {
-                        console.log(real)
-                      }}
                     >Profile</MenuItem>
                   </NextLink>
                   <MenuItem icon={<RiContactsBookLine />}>My Loans</MenuItem>
@@ -116,5 +107,6 @@ import {
               </MenuList>
             </Menu>
           </Flex>
+      </Flex>
     );
   }

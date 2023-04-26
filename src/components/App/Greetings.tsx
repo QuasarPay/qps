@@ -1,16 +1,21 @@
 import React from "react";
-import { Box, Flex, Text, Icon } from "@chakra-ui/react";
+import { Box, Flex, Text, Icon, useDisclosure} from "@chakra-ui/react";
 import { format } from "date-fns";
 import { RxExit, RxDownload, RxPlus } from "react-icons/rx";
+import BorrowMoney from "./BorrowMoneyModal";
+
 
 const Greetings = () => {
   const user = JSON.parse(window.localStorage.getItem("user")!);
-  return (
-    <Box bg="#fff" borderRadius="md" h="220px" w="760px" py={2} px={4}>
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+  return (<>
+        <BorrowMoney isOpen={isOpen} onClose={onClose}/>
+        <Box bg="#fff" borderRadius="md" h="190px" w="760px" py={2} px={4}>
       <Flex direction="row" justify="space-between" w='full'>
         <Flex direction="column" w='full'>
           <Text color="#400050" fontSize={24} fontWeight={600}>
-            Hello, {user?.firstname}👋 
+            Hello, {user ? user[0] : "John"}👋 
             <Text fontSize={14} fontWeight={400} color="#404040">
               {" "}
               What would you like to do today?{" "}
@@ -36,7 +41,7 @@ const Greetings = () => {
 
 
 
-        <Flex align="center" mt="80px">
+        <Flex align="center" mt="60px">
         <Flex
             bg="rgba(0, 74, 3, 0.8)"
             w="190px"
@@ -47,6 +52,7 @@ const Greetings = () => {
             borderRadius="md"
             mr="20px"
             cursor="pointer"
+            _hover={{ transform: "scale(1.03 )" }}
             >
             <Flex bg="#0CA612" align="center" p={1} w="30px" h="30px" borderRadius="md">
                 <Icon as={RxExit} h={5} w={5} />
@@ -64,6 +70,7 @@ const Greetings = () => {
             borderRadius="md"
             mr="20px"
             cursor="pointer"
+            _hover={{ transform: "scale(1.03 )" }}
 
             >
             <Flex bg="#0066FF" justify="center" align="center" p={1} w="30px" h="30px" borderRadius="md">
@@ -81,6 +88,8 @@ const Greetings = () => {
             color="#fff"
             borderRadius="md"
             cursor="pointer"
+            _hover={{ transform: "scale(1.03 )" }}
+            onClick={onOpen}
             >
             <Flex bg="#FFD700" align="center" justify="center" p={1} w="30px" h="30px" borderRadius="md">
                 <Icon as={RxPlus} h={5} w={5} />
@@ -94,6 +103,8 @@ const Greetings = () => {
            
 
     </Box>
+  </>
+
     );
 };
 
